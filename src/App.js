@@ -6,7 +6,7 @@ import './App.css';
 // components
 import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
-import Authentification from './components/Authentification';
+import Authentification from './components/Authentication';
 import WeatherForecast from './components/WeatherForecast';
 import MyPlaces from './components/MyPlaces';
 
