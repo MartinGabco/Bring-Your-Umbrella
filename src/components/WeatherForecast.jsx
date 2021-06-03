@@ -1,7 +1,12 @@
 import React from 'react';
 
+// style 
+import '../style/WeatherForecast.css';
+
 const WeatherForecast = () => {
-    return ( <p>WeatherForecast</p> );
+    return ( 
+        <div className="WeatherForecast"></div> 
+    );
 }
  
 export default WeatherForecast;

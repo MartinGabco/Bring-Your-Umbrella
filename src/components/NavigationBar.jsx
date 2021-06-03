@@ -1,21 +1,26 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+// styles
+import '../style/NavigationBar.css';
+
 const NavigationBar = () => {
     return (
         <nav className="navigation">
-            <NavLink to='/' exact>
-                Home
-            </NavLink>
-            <NavLink to='/authentification'>
-                Authentication
-            </NavLink>
-            <NavLink to='/weatherforecast'>
-                Weather Forecast
-            </NavLink>
-            <NavLink to='/myplaces'>
-                My Places
-            </NavLink>
+            <div className="nav-wrapper">
+                <NavLink to='/' exact>
+                    <p>Home</p> 
+                </NavLink>
+                <NavLink to='/authentification'>
+                    <p>Authentication</p>
+                </NavLink>
+                <NavLink to='/weatherforecast'>
+                    <p> Weather Forecast</p> 
+                </NavLink>
+                <NavLink to='/myplaces'>
+                    <p>My Places</p>
+                </NavLink>
+            </div>
         </nav>
     );
 }
