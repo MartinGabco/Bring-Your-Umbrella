@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 // axios
 import axios from 'axios';
 
+// components
+import Weather_Item from './Weather_Item';
+
 const WeatherShow = () => {
     const [latitude, setLatitude] = useState([])
     const [longitude, setLongitude] = useState([])
@@ -27,9 +30,8 @@ const WeatherShow = () => {
             setPlace(response.data.name)
             setCountry(response.data.sys.country)
 
-            const situation = response.data.weather;
-            const loop = situation.map(situation => situation.main)
-            setSituation(loop)
+            const situation = response.data.weather.name;
+            setSituation(situation)
 
             setTemperature(response.data.main.temp)
             setTemp_min(response.data.main.temp_min)
@@ -37,20 +39,24 @@ const WeatherShow = () => {
             setPressure(response.data.main.pressure)
             setFeels(response.data.main.feels_like)
             setWind(response.data.wind.speed)
+
+            console.log(response)
         });
     });
 
     return (
         <React.Fragment>
-            <p><b>{place}</b></p>
-            <p>{country}</p>
-            <p>{situation}</p>            
-            <p>{temperature}</p>
-            <p>{temp_min}</p>
-            <p>{temp_max}</p>
-            <p>{feels}</p>
-            <p>{pressure}</p>
-            <p>{wind}</p>
+            <Weather_Item
+                place={place}
+                country={country}
+                situation={situation}
+                temperature={temperature}
+                temp_min={temp_min}
+                temp_max={temp_max}
+                feels={feels}
+                pressure={pressure}
+                wind={wind}
+            />            
         </React.Fragment>
     );
 }
