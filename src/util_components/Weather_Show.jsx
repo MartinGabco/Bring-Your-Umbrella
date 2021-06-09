@@ -4,7 +4,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 // components
-import Weather_Item from './Weather_Item';
+import Current from './Current';
+import Hourly from './Hourly';
+import Daily from './Daily';
 
 const WeatherShow = () => {
     const [allData, setAllData] = useState([])
@@ -35,7 +37,9 @@ const WeatherShow = () => {
 
     return (
         <React.Fragment>
-            <Weather_Item currentData={currentData}/>     
+            <Current currentData={currentData}/> 
+            <Hourly/>  
+            <Daily/>
         </React.Fragment>
     );
 }
