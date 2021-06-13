@@ -2,7 +2,7 @@
   width: 100%;
   height: 5em;
   text-decoration: none;
-  background-color: yellowgreen;
+  background-color: #577fd0;
 }
 
 .nav-wrapper {
@@ -23,4 +23,5 @@
 .nav-wrapper p {
   font-size: 1.1em;
   padding-right: 2em;
+  color: #ffffff;
 }/*# sourceMappingURL=NavigationBar.css.map */

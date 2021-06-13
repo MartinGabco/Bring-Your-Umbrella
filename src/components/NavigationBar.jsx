@@ -11,15 +11,12 @@ const NavigationBar = () => {
                 <NavLink to='/' exact>
                     <p>Home</p> 
                 </NavLink>
-                <NavLink to='/authentification'>
-                    <p>Authentication</p>
-                </NavLink>
                 <NavLink to='/weatherforecast'>
                     <p> Weather Forecast</p> 
                 </NavLink>
-                <NavLink to='/myplaces'>
-                    <p>My Places</p>
-                </NavLink>
+                <NavLink to='/authentification'>
+                    <p>My mail notification</p>
+                </NavLink>                
             </div>
         </nav>
     );

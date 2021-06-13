@@ -71,8 +71,14 @@ const WeatherShow = () => {
 
     return (
         <div className="content">
-            <p>{daily_content}</p>
-            <p></p>
+            <div className="container">
+                <header className="header_wrapper">
+                    <h2>Do you need umbrella today or tommorow?</h2>
+                </header>
+                <div className="current_weather"></div>
+                <div className="sidebar"></div>
+                <footer className="footer_wrapper"></footer>
+            </div>
         </div>
     );
 }

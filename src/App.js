@@ -9,22 +9,22 @@ import NavigationBar from './components/NavigationBar';
 import Home from './components/Home';
 import Authentification from './components/Authentication';
 import WeatherForecast from './components/WeatherForecast';
-import MyPlaces from './components/MyPlaces';
 
 function App() {
   return (
     <div className="App">
-      <header>
-          <NavigationBar/>
-      </header>
-      <main className="main_content">
-          <Switch>
-              <Route path="/" component={Home} exact />
-              <Route path="/authentification" component={Authentification} />
-              <Route path="/weatherforecast" component={WeatherForecast} />
-              <Route path="/myplaces" component={MyPlaces} />
-          </Switch>
-      </main>
+      <div className="app_body">
+        <header>
+            <NavigationBar/>
+        </header>
+        <main className="main_content">
+            <Switch>
+                <Route path="/" component={Home} exact />
+                <Route path="/authentification" component={Authentification} />
+                <Route path="/weatherforecast" component={WeatherForecast} />
+            </Switch>
+        </main>       
+      </div>
     </div>
   );
 }
