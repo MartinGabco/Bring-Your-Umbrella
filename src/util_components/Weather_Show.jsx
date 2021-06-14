@@ -10,6 +10,7 @@ import Daily from './Daily';
 
 // styles
 import '../style/Weather_Show.css';
+import '../style/Current.css';
 
 const WeatherShow = () => {
     const [allData, setAllData] = useState([]);
@@ -23,6 +24,9 @@ const WeatherShow = () => {
     // error handling
     const [error, setError] = useState(null);
 
+    // serving variables
+    const [weatherLengthNumber, setWeatherLengthNumber] = useState([]);
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(GeolocationPosition => {
             const latitude = GeolocationPosition.coords.latitude;
@@ -32,11 +36,15 @@ const WeatherShow = () => {
             setError(null);
 
             try {
-                const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly&lang=sk&appid=0797206abd8f52b24a9455dd77220dbc`);
+                const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=hourly&appid=0797206abd8f52b24a9455dd77220dbc`);
                 promise1.then(response => {
                     setAllData(response.data)
                     setCurrentData(response.data.current.weather[0]);
                     setDailyData(response.data.daily);
+
+                    // length of weather array
+                    const weather_length_number = response.data.current.weather.length;
+                    setWeatherLengthNumber(weather_length_number);
                 });
             } catch (ex) {
                 if (ex.response && ex.response.status === 404) {
@@ -57,28 +65,38 @@ const WeatherShow = () => {
         });
     }, []);
 
-    // Daily_content
+    // Current_content
+    let current_content = <div className="loader"></div>;
 
+    if (weatherLengthNumber > 0) {
+        current_content = <Current currentData={currentData} allData={allData}/>
+    }
+
+    // Daily_content
     let daily_content = <div className="loader"></div>;
 
-    if (dailyData.length > 0) {
+    if (dailyData > 0) {
         daily_content = <Daily dailyData={dailyData}/>
     }
 
+    // errors handling
     if (error) {
         daily_content = <p>{error}</p>
+        current_content = <p>{error}</p>
     }
 
+    console.log(hourlyData);
+
     return (
-        <div className="content">
-            <div className="container">
-                <header className="header_wrapper">
-                    <h2>Do you need umbrella today or tommorow?</h2>
-                </header>
-                <div className="current_weather"></div>
-                <div className="sidebar"></div>
-                <footer className="footer_wrapper"></footer>
+        <div className="container">
+            <header className="header_wrapper">
+                <h2>Do you need umbrella today or tommorow?</h2>
+            </header>
+            <div className="current_weather">
+                {current_content}
             </div>
+            <div className="sidebar"></div>
+            <footer className="footer_wrapper"></footer>
         </div>
     );
 }

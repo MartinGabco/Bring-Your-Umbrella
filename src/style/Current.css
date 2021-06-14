@@ -1,0 +1,18 @@
+.current_left {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  background-color: #1ecfd2;
+}
+
+.current_right {
+  grid-row-start: 2;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  background-color: #55e64d;
+}
+
+.current_left,
+.current_right {
+  padding: 1.2em 1em 0 0;
+}/*# sourceMappingURL=Current.css.map */
