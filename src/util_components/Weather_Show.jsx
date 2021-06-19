@@ -38,7 +38,7 @@ const WeatherShow = () => {
             try {
                 const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=hourly&appid=0797206abd8f52b24a9455dd77220dbc`);
                 promise1.then(response => {
-                    setAllData(response.data)
+                    setAllData(response.data);
                     setCurrentData(response.data.current.weather[0]);
                     setDailyData(response.data.daily);
 
@@ -56,7 +56,7 @@ const WeatherShow = () => {
                 };
             };
 
-            const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&lang=sk&appid=0797206abd8f52b24a9455dd77220dbc`);
+            const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
             promise2.then(response => {
                 setHourlyData(response.data.hourly);
             });
@@ -85,8 +85,6 @@ const WeatherShow = () => {
         current_content = <p>{error}</p>
     }
 
-    console.log(hourlyData);
-
     return (
         <div className="container">
             <header className="header_wrapper">
@@ -95,7 +93,9 @@ const WeatherShow = () => {
             <div className="current_weather">
                 {current_content}
             </div>
-            <div className="sidebar"></div>
+            <div className="sidebar">
+                <Hourly hourlyData={hourlyData} />
+            </div>
             <footer className="footer_wrapper"></footer>
         </div>
     );

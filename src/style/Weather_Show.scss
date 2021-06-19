@@ -51,7 +51,11 @@
         grid-row-start: 4;
         grid-column-start: 4;
         grid-column-end: 5;
-        background-color: rgba(238, 94, 89, 0.972);        
+        background-color: rgba(238, 94, 89, 0.972);       
+        
+        .umbrella-message {
+            padding: 0.25em 0 0 1.5em;
+        }
     }
 
     .footer_wrapper {
