@@ -31,9 +31,9 @@
 
 .container {
   width: 100%;
-  height: 48em;
+  height: 65em;
   display: grid;
-  grid-template-rows: 5% 15% 2.5% 40% 2.5% 30% 5%;
+  grid-template-rows: 5% 10% 2.5% 28.5% 2.5% 46.5% 5%;
   grid-template-columns: 5% 50% 2% 38% 5%;
   background-color: #284ecc;
 }
@@ -98,5 +98,16 @@
   grid-row-start: 6;
   grid-column-start: 2;
   grid-column-end: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 0.5em;
   background-color: coral;
 }/*# sourceMappingURL=Weather_Show.css.map */
