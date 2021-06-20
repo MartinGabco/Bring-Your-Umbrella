@@ -13,7 +13,7 @@
 }
 .App .app_body .main_content {
   padding: 3em 0 3em 0;
-  margin-bottom: 10em;
+  margin: -9em 0 12em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

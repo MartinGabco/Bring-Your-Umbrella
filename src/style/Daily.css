@@ -10,7 +10,6 @@
           flex-direction: row;
   padding-right: 1.3em;
   list-style: none;
-  background-color: chartreuse;
 }
 .daily-list .daily-item {
   width: 14%;

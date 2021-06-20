@@ -74,13 +74,6 @@ const WeatherShow = () => {
         current_content = <Current currentData={currentData} allData={allData}/>
     }
 
-    // Hourly_content
-    let hourly_content = <div className="loader"></div>;
-
-    if (hourlyData.length > 0) {
-        hourly_content = <Hourly hourlyData={hourlyData}/>
-    }
-
     // Daily_content
     let daily_content = <div className="loader"></div>;
 
@@ -91,7 +84,6 @@ const WeatherShow = () => {
     // errors handling
     if (error) {
         daily_content = <p>{error}</p>
-        hourly_content = <p>{error}</p>
         current_content = <p>{error}</p>
     }
 
@@ -105,7 +97,7 @@ const WeatherShow = () => {
             </div>
             <div className="sidebar">   
                 <div className="messages_wrapper">
-                    {hourly_content}
+                    <Hourly hourlyData={hourlyData}/>
                 </div> 
                 <div className="link_wrapper">
                     <Link to='./authentification'>
