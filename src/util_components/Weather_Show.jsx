@@ -95,8 +95,6 @@ const WeatherShow = () => {
         current_content = <p>{error}</p>
     }
 
-    console.log(hourlyData);
-
     return (
         <div className="container">
             <header className="header_wrapper">
@@ -115,7 +113,9 @@ const WeatherShow = () => {
                     </Link>
                 </div>        
             </div>
-            <footer className="footer_wrapper"></footer>
+            <footer className="footer_wrapper">
+                <Daily dailyData={dailyData}/>
+            </footer>
         </div>
     );
 }
