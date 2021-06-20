@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Link } from "react-router-dom";
 
 // axios
 import axios from 'axios';
 
 // components
+import Authentication from '../components/Authentication';
 import Current from './Current';
 import Hourly from './Hourly';
 import Daily from './Daily';
@@ -107,7 +109,11 @@ const WeatherShow = () => {
                 <div className="messages_wrapper">
                     {hourly_content}
                 </div> 
-                <div className="redirect_wrapper"></div>        
+                <div className="link_wrapper">
+                    <Link to='./authentification'>
+                        <a className="authentication_link">I want to get notifications with rain forecast.</a>
+                    </Link>
+                </div>        
             </div>
             <footer className="footer_wrapper"></footer>
         </div>

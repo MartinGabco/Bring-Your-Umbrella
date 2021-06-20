@@ -64,12 +64,17 @@
             background-color: #80ffff;
         }
 
-        .redirect_wrapper {
+        .link_wrapper {
             grid-row-start: 4;
             grid-row-end: 5;
             grid-column-start: 3;
             grid-column-end: 4;
             background-color: darkorchid;
+
+            .authentication_link {
+                text-decoration: none;
+                color: #ffffff;
+            }
         }
     }
 

@@ -83,12 +83,16 @@
   grid-column-end: 5;
   background-color: #80ffff;
 }
-.container .sidebar .redirect_wrapper {
+.container .sidebar .link_wrapper {
   grid-row-start: 4;
   grid-row-end: 5;
   grid-column-start: 3;
   grid-column-end: 4;
   background-color: darkorchid;
+}
+.container .sidebar .link_wrapper .authentication_link {
+  text-decoration: none;
+  color: #ffffff;
 }
 .container .footer_wrapper {
   grid-row-start: 6;
