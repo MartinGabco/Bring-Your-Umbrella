@@ -71,10 +71,24 @@
   grid-row-start: 4;
   grid-column-start: 4;
   grid-column-end: 5;
+  display: grid;
+  grid-template-rows: 5% 60% 9% 14% 13%;
+  grid-template-columns: 7% 10% 66% 10% 7%;
   background-color: rgba(238, 94, 89, 0.972);
 }
-.container .sidebar .umbrella-message {
-  padding: 0.25em 0 0 1.5em;
+.container .sidebar .messages_wrapper {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  background-color: #80ffff;
+}
+.container .sidebar .redirect_wrapper {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  background-color: darkorchid;
 }
 .container .footer_wrapper {
   grid-row-start: 6;

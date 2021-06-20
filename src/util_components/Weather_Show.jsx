@@ -65,25 +65,35 @@ const WeatherShow = () => {
         });
     }, []);
 
-    // Current_content
+    // Current_content   
     let current_content = <div className="loader"></div>;
 
     if (weatherLengthNumber > 0) {
         current_content = <Current currentData={currentData} allData={allData}/>
     }
 
+    // Hourly_content
+    let hourly_content = <div className="loader"></div>;
+
+    if (hourlyData.length > 0) {
+        hourly_content = <Hourly hourlyData={hourlyData}/>
+    }
+
     // Daily_content
     let daily_content = <div className="loader"></div>;
 
-    if (dailyData > 0) {
-        daily_content = <Daily dailyData={dailyData}/>
+    if (dailyData.length > 0) {
+        daily_content = <Daily dailyData={dailyData} />
     }
 
     // errors handling
     if (error) {
         daily_content = <p>{error}</p>
+        hourly_content = <p>{error}</p>
         current_content = <p>{error}</p>
     }
+
+    console.log(hourlyData);
 
     return (
         <div className="container">
@@ -93,8 +103,11 @@ const WeatherShow = () => {
             <div className="current_weather">
                 {current_content}
             </div>
-            <div className="sidebar">
-                <Hourly hourlyData={hourlyData} />
+            <div className="sidebar">   
+                <div className="messages_wrapper">
+                    {hourly_content}
+                </div> 
+                <div className="redirect_wrapper"></div>        
             </div>
             <footer className="footer_wrapper"></footer>
         </div>

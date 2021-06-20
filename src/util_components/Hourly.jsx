@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 
 import _ from 'lodash';
 
+// css
+import '../style/Hourly.css';
+
 const Hourly = ({ hourlyData }) => {
 
     // hook for sorting
@@ -492,8 +495,6 @@ const Hourly = ({ hourlyData }) => {
         return { function: x, datestamp: date_array[y] }
     });
 
-    console.log(weather_condition_sum);
-
     function handleSort(path) {
         setSortDate({sortDate: { path, order: 'asc' }});
     }
@@ -501,10 +502,10 @@ const Hourly = ({ hourlyData }) => {
     const sorted = _.orderBy(merging, [sortDate.path], [sortDate.order]);
 
     return ( 
-        <React.Fragment>
+        <div className="messages">
             {sorted.map(element => <p>{element.function}</p>)}
             <p className="umbrella-message">{umbrella_message()}</p>
-        </React.Fragment>
+        </div>                   
     );
 }
  
