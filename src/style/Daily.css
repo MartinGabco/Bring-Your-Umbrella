@@ -18,7 +18,7 @@
   grid-template-rows: 3% 30% 5% 30% 5% 20% 11%;
   grid-template-columns: 1;
   margin-right: 1em;
-  background-color: cornsilk;
+  background-color: #ffffff;
 }
 .daily-list .daily-item .dating,
 .daily-list .daily-item .weather,
@@ -36,5 +36,5 @@
 .daily-list .daily-item .umbrella {
   grid-row-start: 6;
   grid-row-end: 7;
-  padding-top: 1.5em;
+  padding-top: 2em;
 }/*# sourceMappingURL=Daily.css.map */

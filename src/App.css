@@ -12,8 +12,7 @@
   grid-column-end: 3;
 }
 .App .app_body .main_content {
-  padding: 3em 0 3em 0;
-  margin: -9em 0 12em 0;
+  padding: 6em 0 3em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
