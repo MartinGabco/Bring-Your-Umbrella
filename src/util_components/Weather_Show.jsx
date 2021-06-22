@@ -550,6 +550,10 @@ const WeatherShow = () => {
             <header className="header_wrapper">
                 <h2>Do you need umbrella today or tommorow?</h2>
             </header>
+            <div className="input-wrapper">
+                <input className="place-searcher" type="text" />
+                <button className="submit">Find place</button>
+            </div>
             <div className="current_weather">
                 {current_content}
             </div>

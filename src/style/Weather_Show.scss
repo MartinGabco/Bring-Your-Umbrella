@@ -15,9 +15,9 @@
 
 .container {
     width: 100%;
-    height: 65em;
+    height: 75em;
     display: grid;
-    grid-template-rows: 5% 10% 2.5% 28.5% 2.5% 46.5% 5%;
+    grid-template-rows: 5% 5% 2.5% 7.5% 2.5% 23.5% 2.5% 46.5% 5%;
     grid-template-columns: 5% 50% 2% 38% 5%;
     background-color: rgb(40, 78, 204);
 
@@ -28,17 +28,42 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        padding-top: 0.3em;
         background-color: rgb(112, 173, 216);
 
         h2 {
             font-weight: lighter;
             font-size: 1.75em;
+            transform: translateY(-0.55em);
+        }
+    }
+
+    .input-wrapper {
+        grid-row-start: 4;
+        grid-column-start: 2;
+        grid-column-end: 5;
+        display: grid;
+        grid-template-rows: 33.5% 35% 33.5%;
+        grid-template-columns: 3% 36.5% 2.5% 10% 47.5%;    
+        background-color: #ffffff;
+
+        .place-searcher {
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+
+        .submit {
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 4;
+            grid-column-end: 5;
+            cursor: pointer;
         }
     }
 
     .current_weather {
-        grid-row-start: 4;
+        grid-row-start: 6;
         grid-column-start: 2;
         grid-column-end: 3;
         display: grid;
@@ -48,7 +73,7 @@
     }
 
     .sidebar {
-        grid-row-start: 4;
+        grid-row-start: 6;
         grid-column-start: 4;
         grid-column-end: 5; 
         display: grid; 
@@ -79,7 +104,7 @@
     }
 
     .footer_wrapper {
-        grid-row-start: 6;
+        grid-row-start: 8;
         grid-column-start: 2;
         grid-column-end: 5;
         display: flex;
