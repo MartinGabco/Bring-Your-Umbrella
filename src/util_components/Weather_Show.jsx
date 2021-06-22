@@ -38,6 +38,9 @@ const WeatherShow = () => {
     // visibility variable
     const [isHidden, setIsHidden] = useState(true);
 
+    // search from input
+    const [searchQuery, setSearchQuery] = useState([]);
+
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(GeolocationPosition => {
             const latitude = GeolocationPosition.coords.latitude;
@@ -545,14 +548,33 @@ const WeatherShow = () => {
         return { daily_weather_condition_data: x, umbrella: handleSum[y] }
     });
 
+    const handleSubmit = event => {
+        event.preventDefault();
+       console.log('bow')
+    }
+
+    console.log(searchQuery);
+
     return (
         <div className="container">
             <header className="header_wrapper">
                 <h2>Do you need umbrella today or tommorow?</h2>
             </header>
             <div className="input-wrapper">
-                <input className="place-searcher" type="text" />
-                <button className="submit">Find place</button>
+                <form onSubmit={handleSubmit}>
+                    <input 
+                        className="place-searcher" 
+                        type="text" 
+                        value={searchQuery} 
+                        onChange={e => setSearchQuery(e.target.value)}
+                    />
+                    <button 
+                        className="submit"
+                        type="submit"
+                    >
+                            Find place
+                    </button>
+                </form>
             </div>
             <div className="current_weather">
                 {current_content}
