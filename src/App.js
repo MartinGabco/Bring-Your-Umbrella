@@ -17,7 +17,7 @@ function App() {
         <header>
             <NavigationBar/>
         </header>
-        <main className="main_content">
+        <main className="main_content">            
             <Switch>
                 <Route path="/" component={Home} exact />
                 <Route path="/authentification" component={Authentification} />

@@ -38,46 +38,44 @@ const WeatherShow = () => {
     // visibility variable
     const [isHidden, setIsHidden] = useState(true);
 
-    // search from input
-    const [searchQuery, setSearchQuery] = useState([]);
-
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(GeolocationPosition => {
-            const latitude = GeolocationPosition.coords.latitude;
-            const longitude = GeolocationPosition.coords.longitude;
-
-            setIsLoading(true);
-            setError(null);
-
-            try {
-                const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=hourly&appid=0797206abd8f52b24a9455dd77220dbc`);
-                promise1.then(response => {
-                    setAllData(response.data);
-                    setCurrentData(response.data.current.weather[0]);
-                    setDailyData(response.data.daily);
-
-                    // length of weather array
-                    const weather_length_number = response.data.current.weather.length;
-                    setWeatherLengthNumber(weather_length_number);
-                });
-            } catch (ex) {
-                if (ex.response && ex.response.status === 404) {
-                    const message = 'Something went wrong';
-                    setError(message);
-                } else {
-                    const message = 'An unexpected error occurrred!';
-                    setError(message);
+        useEffect(() => {
+            navigator.geolocation.getCurrentPosition(GeolocationPosition => {
+    
+                const latitude = GeolocationPosition.coords.latitude;
+                const longitude = GeolocationPosition.coords.longitude;
+    
+                setIsLoading(true);
+                setError(null);
+    
+                try {
+                    const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=hourly&appid=0797206abd8f52b24a9455dd77220dbc`);
+                    promise1.then(response => {
+                        setAllData(response.data);
+                        setCurrentData(response.data.current.weather[0]);
+                        setDailyData(response.data.daily);
+    
+                        // length of weather array
+                        const weather_length_number = response.data.current.weather.length;
+                        setWeatherLengthNumber(weather_length_number);
+                    });
+                } catch (ex) {
+                    if (ex.response && ex.response.status === 404) {
+                        const message = 'Something went wrong';
+                        setError(message);
+                    } else {
+                        const message = 'An unexpected error occurrred!';
+                        setError(message);
+                    };
                 };
-            };
-
-            const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
-            promise2.then(response => {
-                setHourlyData(response.data.hourly);
+    
+                const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
+                promise2.then(response => {
+                    setHourlyData(response.data.hourly);
+                });
+    
+                setIsLoading(false);
             });
-
-            setIsLoading(false);
-        });
-    }, []);
+        }, []);
 
     // Current_content   
     let current_content = <div className="loader"></div>;
@@ -548,34 +546,11 @@ const WeatherShow = () => {
         return { daily_weather_condition_data: x, umbrella: handleSum[y] }
     });
 
-    const handleSubmit = event => {
-        event.preventDefault();
-       console.log('bow')
-    }
-
-    console.log(searchQuery);
-
     return (
         <div className="container">
             <header className="header_wrapper">
                 <h2>Do you need umbrella today or tommorow?</h2>
             </header>
-            <div className="input-wrapper">
-                <form onSubmit={handleSubmit}>
-                    <input 
-                        className="place-searcher" 
-                        type="text" 
-                        value={searchQuery} 
-                        onChange={e => setSearchQuery(e.target.value)}
-                    />
-                    <button 
-                        className="submit"
-                        type="submit"
-                    >
-                            Find place
-                    </button>
-                </form>
-            </div>
             <div className="current_weather">
                 {current_content}
             </div>

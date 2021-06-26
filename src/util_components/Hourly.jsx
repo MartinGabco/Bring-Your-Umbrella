@@ -5,10 +5,13 @@ import _ from 'lodash';
 // css
 import '../style/Hourly.css';
 
-const Hourly = ({ hourlyData }) => {
+import { useDispatch } from 'react-redux';
+import { messageActions } from '../store/message-slice';
 
+const Hourly = ({ hourlyData }) => {
     // hook for sorting
     const [sortDate, setSortDate] = useState({ path: 'datestamp', order: 'asc' });
+    const [mess, setMess] = useState([])
 
     // weather conditions
     const weather_condition_dt = hourlyData.map(element => element.dt);
@@ -20,6 +23,8 @@ const Hourly = ({ hourlyData }) => {
     const weather_condition_description = hourlyData.map(element => element.weather[0].description);
     const weather_condition_description_sliced = weather_condition_description.slice(1, 13);
 
+    console.log(weather_condition_description);
+   
     const weather_condition = [];
     for (let id = 200; id <= 831; id++) {
         weather_condition.push(id);
@@ -437,24 +442,9 @@ const Hourly = ({ hourlyData }) => {
             || probability_heavy_intensity_shower_rain.length > 0) {
                 return <p><b>Please, take your raincoat!</b></p>
         }
-        else if (probability_thunderstorm_light_rain.length === 0 
-                && probability_thunderstorm_rain.length === 0 
-                && probability_thunderstorm_heavy_rain.length === 0
-                && probability_thunderstorm_heavy_intensity_drizzle_rain.length === 0
-                && probability_drizzle_rain.length === 0
-                && probability_shower_drizzle_rain.length === 0
-                && probability_light_rain.length === 0
-                && probability_moderate_rain.length === 0
-                && probability_heavy_rain.length === 0
-                && probability_extreme_rain.length === 0
-                && probability_freezing_rain.length === 0
-                && probability_light_shower_rain.length === 0
-                && probability_shower_rain.length === 0
-                && probability_heavy_intensity_shower_rain.length > 0
-                && probability_ragged_shower_rain.length === 0
-                && probability_rain_snow.length === 0) {
-                    return <p><b>We don't expect rain in next 12 hours. Have a nice time outdoors!</b></p>
-                }
+        else {
+            return <p><b>We don't expect rain in next 12 hours. Have a nice time outdoors!</b></p>
+        }
     };
 
     // sorting
@@ -500,10 +490,22 @@ const Hourly = ({ hourlyData }) => {
     }
 
     const sorted = _.orderBy(merging, [sortDate.path], [sortDate.order]);
+    const result = sorted.map(element => element.function);
 
-    return ( 
+    console.log(result);
+
+    const newMessage = [{ a: 'a', b: 'b', c: 'c', d: 'd' }];
+
+    const dispatch = useDispatch();
+    const messageBring = () => {
+        dispatch(
+            messageActions.takeMessage({newMessage})
+        );
+    } 
+
+    return (
         <div className="messages">
-            {sorted.map(element => <p>{element.function}</p>)}
+            <p>{result}</p>
             <p className="umbrella-message">{umbrella_message()}</p>
         </div>                   
     );
