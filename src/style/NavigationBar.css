@@ -1,11 +1,20 @@
+/*SASS MEDIA QUERIES*/
 .navigation {
   width: 100%;
-  height: 5em;
-  text-decoration: none;
+  min-height: 5em;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 15% 70% 15%;
   background-color: #577fd0;
 }
-
-.nav-wrapper {
+@media (max-width: 1023px) {
+  .navigation {
+    min-height: 12.5em;
+  }
+}
+.navigation .nav-wrapper {
+  grid-column-start: 2;
+  grid-column-end: 3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,15 +22,33 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 0.5em;
-  margin-left: 1.4em;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding-top: 0.45em;
+  background-color: darkorange;
+}
+@media (max-width: 1023px) {
+  .navigation .nav-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1em 0 1.5em 0;
+  }
+}
+.navigation .nav-link-home,
+.navigation .nav-link-weatherforecast,
+.navigation .nav-link-authentification {
   text-decoration: none;
 }
-.nav-wrapper p {
+.navigation p {
   font-size: 1.1em;
-  padding-right: 2em;
   color: #ffffff;
+}
+.navigation p:hover {
+  color: #1c1cdb;
 }/*# sourceMappingURL=NavigationBar.css.map */

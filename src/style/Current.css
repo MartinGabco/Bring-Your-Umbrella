@@ -2,17 +2,51 @@
   grid-row-start: 2;
   grid-column-start: 2;
   grid-column-end: 3;
+  padding: 0.95em 0 0 1.8em;
   background-color: #1ecfd2;
+}
+.current_left .place-location {
+  font-size: 1.25em;
+  font-style: italic;
+}
+.current_left .observed {
+  padding-top: 0.75em;
 }
 
 .current_right {
   grid-row-start: 2;
   grid-column-start: 4;
   grid-column-end: 5;
+  padding: 0.7em 0 0 3.5em;
   background-color: #55e64d;
+}
+.current_right .main {
+  padding-bottom: 0.5em;
+}
+.current_right .main p {
+  -webkit-transform: translateY(-0.1em);
+          transform: translateY(-0.1em);
+}
+.current_right .image {
+  padding-top: 0.1em;
+}
+.current_right .image .image-wrapper {
+  margin-left: -1.2em;
+}
+.current_right .image .image-wrapper .weather_image {
+  min-width: 4em;
+  min-height: 4em;
 }
 
 .current_left,
 .current_right {
-  padding: 1.2em 1em 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
 }/*# sourceMappingURL=Current.css.map */

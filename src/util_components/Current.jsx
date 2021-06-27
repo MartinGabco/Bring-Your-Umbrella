@@ -13,19 +13,27 @@ const Current = ({ allData, currentData }) => {
     return (
         <React.Fragment>
             <div className="current_left">
-                <ul className="current_informations" style={{ "list-style":"none" }}>
-                    <li key={allData.id}><h3>{allData.timezone}</h3></li>
-                    <li key={allData.id}><p>{localized}</p></li>
-                    <li key={allData.id}><p>Observed at: {timed}</p></li>
-                </ul>
+                <section className="city_name">
+                    <p className="place-location">{allData.timezone}</p>
+                    <p>{localized}</p>                    
+                </section>
+                <section className="observed">
+                    <p><b> Observed at: {timed}</b></p>
+                </section>
+                <section className="temperature_situation">
+                    <p className="temperature">Temperature: {allData.current.temp} °C</p>
+                </section>
             </div>
             <div className="current_right">
-                <ul className="current_weather_list" style={{ "list-style":"none" }}>
-                    <li key={currentData.id}><h2>{currentData.main}</h2></li>
-                    <li key={currentData.id}><p>{currentData.description}</p></li>
-                    <li key={currentData.id}><img src={`http://openweathermap.org/img/w/${currentData.icon}.png`}/></li>
-                    <li key={allData.id}><p>Temperature: {allData.current.temp} °C</p></li>
-                </ul>
+                <section className="main">
+                    <h2>{currentData.main}</h2>
+                    <p>{currentData.description}</p>                 
+                </section>
+                <section className="image">
+                    <div className="image-wrapper">
+                        <img src={`http://openweathermap.org/img/w/${currentData.icon}.png`} className="weather_image"/>   
+                    </div>
+                </section>
             </div>
         </React.Fragment>
     );

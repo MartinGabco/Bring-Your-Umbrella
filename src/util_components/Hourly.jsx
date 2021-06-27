@@ -492,9 +492,7 @@ const Hourly = ({ hourlyData }) => {
     const sorted = _.orderBy(merging, [sortDate.path], [sortDate.order]);
     const result = sorted.map(element => element.function);
 
-    console.log(result);
-
-    const newMessage = [{ a: 'a', b: 'b', c: 'c', d: 'd' }];
+    const newMessage = 10;
 
     const dispatch = useDispatch();
     const messageBring = () => {

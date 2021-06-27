@@ -2,17 +2,53 @@
     grid-row-start: 2;
     grid-column-start: 2;
     grid-column-end: 3;
+    padding: 0.95em 0 0 1.8em;
     background-color: rgb(30, 207, 210);
+
+    .place-location {
+        font: {
+            size: 1.25em;
+            style: italic;
+        }
+    }
+
+    .observed {
+        padding-top: 0.75em;
+    }
 }
 
 .current_right {
     grid-row-start: 2;
     grid-column-start: 4;
     grid-column-end: 5;
+    padding: 0.7em 0 0 3.5em;
     background-color: rgb(85, 230, 77);
+
+    .main {
+        padding-bottom: 0.5em;
+
+        p {
+            transform: translateY(-0.1em);
+        }
+    }
+
+    .image {
+        padding-top: 0.1em;
+        .image-wrapper {
+            margin-left: -1.2em;
+
+            .weather_image {
+                min-width: 4em;
+                min-height: 4em;
+            }
+        }
+    }
 }
+
 
 .current_left,
 .current_right {
-    padding: 1.2em 1em 0 0;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
 }

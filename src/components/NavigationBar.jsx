@@ -8,15 +8,15 @@ const NavigationBar = () => {
     return (
         <nav className="navigation">
             <div className="nav-wrapper">
-                <NavLink to='/' exact>
+                <NavLink to='/' exact className="nav-link-home">
                     <p>Home</p> 
                 </NavLink>
-                <NavLink to='/weatherforecast'>
+                <NavLink to='/weatherforecast' className="nav-link-weatherforecast">
                     <p> Weather Forecast</p> 
                 </NavLink>
-                <NavLink to='/authentification'>
+                <NavLink to='/authentification' className="nav-link-authentification">
                     <p>My mail notification</p>
-                </NavLink>                
+                </NavLink>                     
             </div>
         </nav>
     );
