@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Link } from "react-router-dom";
 
 // axios
 import axios from 'axios';
@@ -37,6 +36,10 @@ const WeatherShow = () => {
 
     // visibility variable
     const [isHidden, setIsHidden] = useState(true);
+
+    const [products, setProducts] = useState([
+        { id: 1, title: 'Milan'},
+    ])
 
         useEffect(() => {
             navigator.geolocation.getCurrentPosition(GeolocationPosition => {
@@ -556,13 +559,8 @@ const WeatherShow = () => {
             </div>
             <div className="sidebar">   
                 <div className="messages_wrapper">
-                    <Hourly hourlyData={hourlyData}/>
-                </div> 
-                <div className="link_wrapper">
-                    <Link to='./authentification'>
-                        <a className="authentication_link">I want to get notifications with rain forecast.</a>
-                    </Link>
-                </div>        
+                    <Hourly hourlyData={hourlyData} products={products}/>
+                </div>       
             </div>
             <footer className="footer_wrapper">
                 <Daily

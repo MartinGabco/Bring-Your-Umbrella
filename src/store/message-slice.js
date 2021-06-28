@@ -2,12 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 import { startsWith } from "lodash";
 
 const messageSlice = createSlice({
-    name: 'mesl',
-    initialState: { message: 2 },
+    name: 'messageItem',
+    initialState: {
+        messages_items: []
+     },
     reducers: {
-        takeMessage(state, action) {
+        addMessageToAuthentication(state, action) {
             const newMessage = action.payload;
-            state.message++;
+                state.messages_items.push({
+                    name: newMessage.message
+                });
         }
     }
 });

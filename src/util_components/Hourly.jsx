@@ -5,13 +5,16 @@ import _ from 'lodash';
 // css
 import '../style/Hourly.css';
 
+// route-linking
+import { Link } from "react-router-dom";
+
+// REDUX
 import { useDispatch } from 'react-redux';
 import { messageActions } from '../store/message-slice';
 
 const Hourly = ({ hourlyData }) => {
     // hook for sorting
     const [sortDate, setSortDate] = useState({ path: 'datestamp', order: 'asc' });
-    const [mess, setMess] = useState([])
 
     // weather conditions
     const weather_condition_dt = hourlyData.map(element => element.dt);
@@ -22,8 +25,6 @@ const Hourly = ({ hourlyData }) => {
 
     const weather_condition_description = hourlyData.map(element => element.weather[0].description);
     const weather_condition_description_sliced = weather_condition_description.slice(1, 13);
-
-    console.log(weather_condition_description);
    
     const weather_condition = [];
     for (let id = 200; id <= 831; id++) {
@@ -492,20 +493,30 @@ const Hourly = ({ hourlyData }) => {
     const sorted = _.orderBy(merging, [sortDate.path], [sortDate.order]);
     const result = sorted.map(element => element.function);
 
-    const newMessage = 10;
+    const message = umbrella_message().props.children.props.children;
 
     const dispatch = useDispatch();
-    const messageBring = () => {
+
+    const addToAuthenticationHandler = () => {
         dispatch(
-            messageActions.takeMessage({newMessage})
+            messageActions.addMessageToAuthentication({
+                message
+            })
         );
-    } 
+    };
 
     return (
-        <div className="messages">
-            <p>{result}</p>
-            <p className="umbrella-message">{umbrella_message()}</p>
-        </div>                   
+        <React.Fragment>
+            <div className="messages-wrapper">
+                <p>{result}</p>
+                <p className="umbrella-message">{umbrella_message()}</p>
+            </div>
+            <div className="link_wrapper">
+                <Link to='./authentification' className='auth-link'>
+                    <a className="authentication_link" onClick={addToAuthenticationHandler}>I want to get notifications with rain forecast.</a>
+                </Link>
+            </div>  
+        </React.Fragment>           
     );
 }
  

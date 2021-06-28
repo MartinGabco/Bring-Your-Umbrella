@@ -5,6 +5,7 @@ import umbrella_icon from '../img/FreeVector-Rain-And-Umbrella-Icon.png';
 
 // style
 import '../style/Daily.css';
+import '../style/Weather_Show.css';
 
 const Daily = props => {
     const { daily_weather_condition_data, umbrella_content, daily_weather_condition_data_sum} = props;

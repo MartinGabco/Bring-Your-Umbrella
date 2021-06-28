@@ -5,8 +5,8 @@ import { useSelector } from 'react-redux';
 import '../style/Authentication.css';
 
 const Authentication = () => {
-    const messageItems = useSelector((state) => state.mesl.message);
-    console.log(messageItems);
+    const addedMessage = useSelector((state) => state.messageItem.messages_items);
+    console.log(addedMessage);
 
     return (
         <React.Fragment>

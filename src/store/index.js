@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import messageSlice from "./message-slice";
 
 const store = configureStore ({
-    reducer: { mesl: messageSlice.reducer }
+    reducer: { messageItem: messageSlice.reducer }
 });
 
 export default store;
