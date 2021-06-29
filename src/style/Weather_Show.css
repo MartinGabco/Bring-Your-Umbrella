@@ -1,7 +1,8 @@
-.loader {
+.loader_current,
+.loader_hourly,
+.loader_daily {
   width: 3.5em;
   height: 3.5em;
-  margin: 7.75em 890%;
   border: 0.1em solid #ffff00;
   border-top: 0.1em solid #284ecc;
   border-radius: 50%;
@@ -27,6 +28,18 @@
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.loader_current {
+  margin: 6.5em 850%;
+}
+
+.loader_hourly {
+  margin: 6.5em 825%;
+}
+
+.loader_daily {
+  margin: 11em auto;
 }
 
 .container {

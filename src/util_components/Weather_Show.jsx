@@ -4,7 +4,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 // components
-import Authentication from '../components/Authentication';
 import Current from './Current';
 import Hourly from './Hourly';
 import Daily from './Daily';
@@ -12,6 +11,7 @@ import Daily from './Daily';
 // styles
 import '../style/Weather_Show.css';
 import '../style/Current.css';
+import '../style/Hourly.css';
 
 // momment for converting time
 import moment from 'moment';
@@ -71,33 +71,44 @@ const WeatherShow = () => {
                     };
                 };
     
-                const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
-                promise2.then(response => {
-                    setHourlyData(response.data.hourly);
-                });
+                try {
+                    const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
+                    promise2.then(response => {
+                        setHourlyData(response.data.hourly);
+                    });
+                    } catch (ex) {
+                        if (ex.response && ex.response.status === 404) {
+                            const message = 'Something went wrong';
+                            setError(message);
+                        } else {
+                            const message = 'An unexpected error occurrred!';
+                            setError(message);
+                        };
+                    };
     
                 setIsLoading(false);
             });
         }, []);
 
     // Current_content   
-    let current_content = <div className="loader"></div>;
+    let current_content = <div className="loader_current"></div>;
 
     if (weatherLengthNumber > 0) {
         current_content = <Current currentData={currentData} allData={allData}/>
     }
 
-    // Daily_content
-    let daily_content = <div className="loader"></div>;
+    // Hourly content
+    let hourly_content = <div className="loader_hourly"></div>;
 
-    if (dailyData.length > 0) {
-        daily_content = <Daily dailyData={dailyData} />
+    if (hourlyData.length > 0) {
+        hourly_content = <Hourly hourlyData={hourlyData} products={products}/>
     }
 
     // errors handling
     if (error) {
         daily_content = <p>{error}</p>
         current_content = <p>{error}</p>
+        hourly_content = <p>{error}</p>
     }
 
     // Daily_content
@@ -549,6 +560,18 @@ const WeatherShow = () => {
         return { daily_weather_condition_data: x, umbrella: handleSum[y] }
     });
 
+    // Hourly content
+    let daily_content = <div className="loader_daily"></div>;
+
+    if (dailyData.length > 0) {
+        daily_content = <Daily daily_weather_condition_data_sum={daily_weather_condition_data_sum} />
+    }
+
+    // errors handling
+    if (error) {
+        daily_content = <p>{error}</p>
+    }
+
     return (
         <div className="container">
             <header className="header_wrapper">
@@ -559,15 +582,11 @@ const WeatherShow = () => {
             </div>
             <div className="sidebar">   
                 <div className="messages_wrapper">
-                    <Hourly hourlyData={hourlyData} products={products}/>
+                    {hourly_content}
                 </div>       
             </div>
             <footer className="footer_wrapper">
-                <Daily
-                    daily_weather_condition_data={daily_weather_condition_data}
-                    umbrella_content={umbrella_content}
-                    daily_weather_condition_data_sum={daily_weather_condition_data_sum}
-                />
+                {daily_content}
             </footer>
         </div>
     );

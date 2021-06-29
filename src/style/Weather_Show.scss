@@ -1,16 +1,28 @@
-.loader {
+.loader_current,
+.loader_hourly,
+.loader_daily, {
     width: 3.5em;
     height: 3.5em;
-    margin: 7.75em 890%;
     border: 0.1em solid #ffff00;
     border-top: 0.1em solid rgb(40, 78, 204);
     border-radius: 50%;
     animation: spin 1s linear infinite;
-
     @keyframes spin {
         0% { transform: rotate(0deg);}
         100% { transform: rotate(360deg);}
     }
+}
+
+.loader_current {
+    margin: 6.5em 850%;
+}
+
+.loader_hourly {
+    margin: 6.5em 825%;
+}
+
+.loader_daily {
+    margin: 11em auto;
 }
 
 .container {
