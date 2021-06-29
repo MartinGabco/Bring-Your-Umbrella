@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { messageActions } from '../store/message-slice';
 
 const Hourly = ({ hourlyData }) => {
+
     // hook for sorting
     const [sortDate, setSortDate] = useState({ path: 'datestamp', order: 'asc' });
 

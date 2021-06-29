@@ -1,5 +1,36 @@
 .home {
   width: 85%;
   min-height: 65em;
-  background-color: #ffcc99;
+  display: grid;
+  grid-template-rows: 49% 51%;
+  grid-template-columns: 34% 66%;
+  background-color:#ffffff;
+
+  .umbrella {
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background: url('../img/umbrella.jpg') center no-repeat;
+  }
+
+  .main_text {
+    grid-row-start: 1;
+    grid-row-end: 1;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    padding-top: 1.5em;
+  }
+
+  .nature_beauty {
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background: url('../img/nature_beauty.jpg') bottom no-repeat;
+  }
 }

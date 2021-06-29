@@ -101,7 +101,7 @@ const WeatherShow = () => {
     let hourly_content = <div className="loader_hourly"></div>;
 
     if (hourlyData.length > 0) {
-        hourly_content = <Hourly hourlyData={hourlyData} products={products}/>
+        hourly_content = <Hourly hourlyData={hourlyData} products={products} />
     }
 
     // errors handling
