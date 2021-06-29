@@ -39,7 +39,7 @@ const WeatherShow = () => {
 
     const [products, setProducts] = useState([
         { id: 1, title: 'Milan'},
-    ])
+    ]);
 
         useEffect(() => {
             navigator.geolocation.getCurrentPosition(GeolocationPosition => {
@@ -50,41 +50,29 @@ const WeatherShow = () => {
                 setIsLoading(true);
                 setError(null);
     
-                try {
-                    const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=hourly&appid=0797206abd8f52b24a9455dd77220dbc`);
+                const promise1 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=hourly&appid=0797206abd8f52b24a9455dd77220dbc`);
                     promise1.then(response => {
                         setAllData(response.data);
                         setCurrentData(response.data.current.weather[0]);
                         setDailyData(response.data.daily);
-    
+
                         // length of weather array
                         const weather_length_number = response.data.current.weather.length;
                         setWeatherLengthNumber(weather_length_number);
+
+                        console.log('success');
                     });
-                } catch (ex) {
-                    if (ex.response && ex.response.status === 404) {
-                        const message = 'Something went wrong';
-                        setError(message);
-                    } else {
-                        const message = 'An unexpected error occurrred!';
-                        setError(message);
-                    };
-                };
+                    promise1.catch(
+                        response => setError('Something has failed. Please, reload the page!')
+                    );
     
-                try {
-                    const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
+                const promise2 = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=daily&appid=0797206abd8f52b24a9455dd77220dbc`);
                     promise2.then(response => {
                         setHourlyData(response.data.hourly);
                     });
-                    } catch (ex) {
-                        if (ex.response && ex.response.status === 404) {
-                            const message = 'Something went wrong';
-                            setError(message);
-                        } else {
-                            const message = 'An unexpected error occurrred!';
-                            setError(message);
-                        };
-                    };
+                    promise2.catch(
+                        response => setError('Something has failed. Please, reload the page!')
+                    );
     
                 setIsLoading(false);
             });
