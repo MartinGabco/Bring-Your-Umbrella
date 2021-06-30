@@ -11,7 +11,6 @@
   grid-row-end: 5;
   grid-column-start: 2;
   grid-column-end: 3;
-  padding: 0.2em 0.2em 0.2em 0.2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -21,9 +20,17 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  padding: 0 0.4em 0 0.4em;
   background-color: blue;
 }
 .link_wrapper .auth-link {
   text-align: center;
   text-decoration: none;
+}
+.link_wrapper .auth-link .authentication_link p {
+  -webkit-transform: translateY(-0.1em);
+          transform: translateY(-0.1em);
+}
+.link_wrapper .auth-link .authentication_link p:hover, .link_wrapper .auth-link .authentication_link p:focus {
+  color: #a03434;
 }/*# sourceMappingURL=Hourly.css.map */

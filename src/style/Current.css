@@ -2,7 +2,7 @@
   grid-row-start: 2;
   grid-column-start: 2;
   grid-column-end: 3;
-  padding: 0.95em 0 0 1.8em;
+  padding: 0.95em 0 0 1em;
   background-color: #1ecfd2;
 }
 .current_left .place-location {
@@ -17,7 +17,7 @@
   grid-row-start: 2;
   grid-column-start: 4;
   grid-column-end: 5;
-  padding: 0.7em 0 0 3.5em;
+  padding: 0.7em 0 0 0;
   background-color: #55e64d;
 }
 .current_right .main {
@@ -31,7 +31,7 @@
   padding-top: 0.1em;
 }
 .current_right .image .image-wrapper {
-  margin-left: -1.2em;
+  margin-left: -0.4em;
 }
 .current_right .image .image-wrapper .weather_image {
   min-width: 4em;
