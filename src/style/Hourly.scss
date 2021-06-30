@@ -11,16 +11,24 @@
     grid-row-end: 5;
     grid-column-start: 2;
     grid-column-end: 3;
-    padding: 0.2em 0.2em 0.2em 0.2em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding: 0 0.4em 0 0.4em;
     background-color: blue;
 
     .auth-link {
         text: {
             align: center;
             decoration: none;
+        }
+
+        .authentication_link p {
+            &:hover,
+            &:focus {
+                color: #a03434;
+            }  
+            transform: translateY(-0.1em);    
         }
     }
 }
