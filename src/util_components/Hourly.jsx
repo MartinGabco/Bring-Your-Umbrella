@@ -514,7 +514,7 @@ const Hourly = ({ hourlyData }) => {
             </div>
             <div className="link_wrapper">
                 <Link to='./authentification' className='auth-link'>
-                    <a className="authentication_link" onClick={addToAuthenticationHandler}>I want to get notifications with rain forecast.</a>
+                    <a className="authentication_link" onClick={addToAuthenticationHandler}>I want to get notification with rain forecast.</a>
                 </Link>
             </div>  
         </React.Fragment>           

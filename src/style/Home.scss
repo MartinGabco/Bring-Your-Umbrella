@@ -23,7 +23,20 @@
     flex-direction: column;
     align-content: center;
     text-align: center;
-    padding-top: 1.5em;
+    padding: 2.5em 2.5em 0 2.5em;
+    font-weight: lighter;
+    line-height: 1.5em;
+
+    .main-header {
+      font-weight: 400;
+      padding-bottom: 0.25em;
+    }
+
+    .first p,
+    .second p,
+    .third p {
+      text-align: left;
+    }
   }
 
   .nature_beauty {

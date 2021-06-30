@@ -72,7 +72,7 @@ const WeatherShow = () => {
                     });
                     promise2.catch(
                         response => setError('Something has failed. Please, reload the page!')
-                    );
+                    );                    
     
                 setIsLoading(false);
             });
@@ -136,6 +136,7 @@ const WeatherShow = () => {
     const day_6 = moment(sixth_date._d).format("dddd");
     const date_6 = moment(sixth_date._d).format("MMMM Do");
     const time_6 =  moment(sixth_date._d).format("h:mm:ss");
+
     const seventh_date = moment.unix(daily_weather_condition_dt[6]).utc();
     const day_7 = moment(seventh_date._d).format("dddd");
     const date_7 = moment(seventh_date._d).format("MMMM Do");
@@ -185,12 +186,42 @@ const WeatherShow = () => {
     const ragged_shower_rain = 531;
     const rain_snow = 616;
 
+    const weather_variables = [thunderstorm_light_rain, 
+                               thunderstorm_rain, 
+                               thunderstorm_heavy_rain, 
+                               drizzle_rain, 
+                               heavy_dazzle_rain,
+                               shower_drizzle_rain,
+                               light_rain,
+                               moderate_rain,
+                               heavy_rain,
+                               extreme_rain,
+                               freezing_rain,
+                               light_shower_rain,
+                               shower_rain,
+                               heavy_shower_rain,
+                               ragged_shower_rain,
+                               rain_snow
+                            ];
+    
+    const mapped = weather_variables.map(element => element);
+    weather_variables.forEach(element => console.log(element));
+
+    function Experiment() {
+        if (daily_weather_condition_data[0].id === weather_variables.forEach(element => element)) {
+            console.log('SUCCESS');   
+            } else {
+                console.log('ERROR')
+            }     
+    }
+    console.log(Experiment());
+
     function handleFirst() {
         if (daily_weather_condition_data[0].id === thunderstorm_light_rain) {
             return umbrella_content;   
         }
         if (daily_weather_condition_data[0].id === thunderstorm_rain) {
-            return umbrella_content;
+            return umbrella_content;   
         }
         if (daily_weather_condition_data[0].id === thunderstorm_heavy_rain) {
             return umbrella_content;
