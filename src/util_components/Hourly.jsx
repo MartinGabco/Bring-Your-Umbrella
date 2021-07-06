@@ -487,6 +487,7 @@ const Hourly = ({ hourlyData }) => {
         return { function: x, datestamp: date_array[y] }
     });
 
+    // sorting by time
     function handleSort(path) {
         setSortDate({sortDate: { path, order: 'asc' }});
     }
@@ -494,6 +495,7 @@ const Hourly = ({ hourlyData }) => {
     const sorted = _.orderBy(merging, [sortDate.path], [sortDate.order]);
     const result = sorted.map(element => element.function);
 
+    // REDUX
     const message = umbrella_message().props.children.props.children;
 
     const dispatch = useDispatch();

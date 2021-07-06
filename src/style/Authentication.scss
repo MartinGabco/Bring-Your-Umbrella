@@ -1,5 +1,75 @@
 .authentication {
     width: 85%;
     height: 65em;
+    display: grid;
+    grid-template-rows: 20% 20% 10% 50%;
+    grid-template-columns: 20% 60% 20%;
+    padding-top: 2.5em;
     background-color:floralwhite;
-  }
+}
+
+.form-wrapper {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+
+    h4 {
+      font: {
+          weight: 400;
+          size: 1.4em;
+      }
+      padding-top: 1em;
+    }
+
+    .myForm {
+      width: 70%;
+      height: 15em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 2em;
+      background-color: red;
+
+      .name {
+        margin-top: 2em;
+      }
+
+      .name,
+      .email {
+        width: 60%;
+        min-height: 1.5em;
+        padding: 0.25em 0.5em 0.25em 0.5em;
+        margin-bottom: 2em;
+        outline: none;
+        border: none;
+      }
+
+      .error_message {
+        margin-top: -1em;
+        padding-bottom: 0.5em;
+        color: blue;
+      }
+
+      .submit {
+        width: 30%;
+        min-height: 1.5em;
+        margin-top: 0.5em;
+        font-size: 1em;
+        border: none;
+        cursor: pointer;
+      }
+    }
+}
+
+.background-image-wrapper {
+  grid-row-start: 4;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background: url('../img/river-219972_1280.jpg') center no-repeat;
+}

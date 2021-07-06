@@ -6356,6 +6356,11 @@
     "import-local" "^1.0.0"
     "jest-cli" "^23.6.0"
 
+"joi-browser@^13.4.0":
+  "integrity" "sha512-TfzJd2JaJ/lg/gU+q5j9rLAjnfUNF9DUmXTP9w+GfmG79LjFOXFeM7hIFuXCBcZCivUDFwd9l1btTV9rhHumtQ=="
+  "resolved" "https://registry.npmjs.org/joi-browser/-/joi-browser-13.4.0.tgz"
+  "version" "13.4.0"
+
 "joi@^11.1.1":
   "integrity" "sha512-O7Uw+w/zEWgbL6OcHbyACKSj0PkQeUgmehdoXVSxt92QFCq4+1390Rwh5moI2K/OgC7D8RHRZqHZxT2husMJHA=="
   "resolved" "https://registry.npmjs.org/joi/-/joi-11.4.0.tgz"

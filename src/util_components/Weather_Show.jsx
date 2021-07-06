@@ -204,18 +204,6 @@ const WeatherShow = () => {
                                rain_snow
                             ];
     
-    const mapped = weather_variables.map(element => element);
-    weather_variables.forEach(element => console.log(element));
-
-    function Experiment() {
-        if (daily_weather_condition_data[0].id === weather_variables.forEach(element => element)) {
-            console.log('SUCCESS');   
-            } else {
-                console.log('ERROR')
-            }     
-    }
-    console.log(Experiment());
-
     function handleFirst() {
         if (daily_weather_condition_data[0].id === thunderstorm_light_rain) {
             return umbrella_content;   
@@ -571,7 +559,7 @@ const WeatherShow = () => {
         if (daily_weather_condition_data[6].id === rain_snow) {
             return umbrella_content;
         }  
-    }
+    }          
 
     const handleSum = [handleFirst(), handleSecond(), handleThird(), handleFourth(), handleFifth(), handleSixth(), handleSeventh()]
 

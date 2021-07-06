@@ -1,35 +1,61 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
+// hooks
+import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
+// email tool
 import emailjs from 'emailjs-com';
-import{ init } from 'emailjs-com';
-import { send } from 'emailjs-com';
 
 // style
 import '../style/Authentication.css';
-import { add } from 'lodash';
-import { tSConstructSignatureDeclaration } from '@babel/types';
 
 const Authentication = () => {
     const addedMessage = useSelector((state) => state.messageItem.messages_items);
     const mappedMessage = addedMessage.map(item => item.name);
     console.log(mappedMessage);
 
-    const [your_name, setName] = useState([])
-    const [email, setEmail] = useState([])
+    const [yourName, setYourName] = useState('')
+    const [email, setEmail] = useState('')
     const [message, setMessage] = useState(mappedMessage)
+    
+    // errors
+    const [yourNameIsValid, setYourNameIsValid] = useState(true);
+    const [emailIsValid, setEmailIsValid] = useState(true);
 
     const templateParams = {
         to_name: email,
         from_name: 'template_16vapzu',
-        subject: your_name,
+        subject: yourName,
         message_html: message
     };
 
+    const handleResetForm = () => {
+        setYourName({
+            yourName: '',
+        });
+        setEmail({
+            email: '',
+        });
+    };
+    
     const handleSubmit = e => {
         e.preventDefault();
+
+        if (yourName.trim() === '') {
+            setYourNameIsValid(false);
+            return;
+        }
+
+        if (email.trim() === '') {
+            setEmailIsValid(false);
+            return;
+        }
+
+        setYourNameIsValid(true);
+        setEmailIsValid(true);
+
+        handleResetForm();
 
         emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
         .then((result) => {
@@ -41,11 +67,29 @@ const Authentication = () => {
 
     return (
         <div className="authentication">
-            <form className="#myForm" onSubmit={handleSubmit}>
-                <input type="text" className="name" value={your_name} onChange={event => setName(event.target.value)}/>
-                <input type="text" className="email" value={email} onChange={event => setEmail(event.target.value)}/>
-                <button className="submit" type="submit">SEND MAIL</button>
-            </form>            
+            <div className="form-wrapper">
+                <h4>Do you want receive emails with weather forecast?</h4>
+                <form className="myForm" onSubmit={handleSubmit}>
+                    <input type="text" 
+                        className="name" 
+                        value={yourName} 
+                        placeholder="Your name"
+                        onChange={event => setYourName(event.target.value)}
+                    />
+                    {!yourNameIsValid && <p className="error_message">Please, write your name!</p>}
+                    <input type="text" 
+                        className="email" 
+                        value={email} 
+                        placeholder="Your email"
+                        onChange={event => setEmail(event.target.value)}
+                    />
+                    {!emailIsValid && <p className="error_message">Please, write your email!</p>}
+                    <button className="submit" type="submit">
+                        SEND EMAIL
+                    </button>
+                </form>                        
+            </div>  
+            <div className="background-image-wrapper"></div>      
         </div>
     );
 }
