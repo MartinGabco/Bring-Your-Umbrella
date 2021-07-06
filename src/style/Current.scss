@@ -1,9 +1,14 @@
+@import '../style/common_sass_files/responsive.scss';
+
 .current_left {
     grid-row-start: 2;
     grid-column-start: 2;
     grid-column-end: 3;
     padding: 0.95em 0 0 1em;
     background-color: rgb(30, 207, 210);
+    @media #{$screen-laptop-down} {
+        font-size: 95%;
+    }; 
 
     .place-location {
         font: {
@@ -36,6 +41,9 @@
         padding-top: 0.1em;
         .image-wrapper {
             margin-left: -0.4em;
+            @media #{$screen-laptop-down} {
+                margin-left: -1.2em;
+            }; 
 
             .weather_image {
                 min-width: 4em;
@@ -44,7 +52,6 @@
         }
     }
 }
-
 
 .current_left,
 .current_right {

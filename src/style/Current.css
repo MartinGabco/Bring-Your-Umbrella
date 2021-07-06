@@ -1,9 +1,15 @@
+/*SASS MEDIA QUERIES*/
 .current_left {
   grid-row-start: 2;
   grid-column-start: 2;
   grid-column-end: 3;
   padding: 0.95em 0 0 1em;
   background-color: #1ecfd2;
+}
+@media (max-width: 1439px) {
+  .current_left {
+    font-size: 95%;
+  }
 }
 .current_left .place-location {
   font-size: 1.25em;
@@ -32,6 +38,11 @@
 }
 .current_right .image .image-wrapper {
   margin-left: -0.4em;
+}
+@media (max-width: 1439px) {
+  .current_right .image .image-wrapper {
+    margin-left: -1.2em;
+  }
 }
 .current_right .image .image-wrapper .weather_image {
   min-width: 4em;
