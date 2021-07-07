@@ -1,4 +1,7 @@
 /*SASS MEDIA QUERIES*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
 .App {
   width: 100%;
   min-height: 90em;
@@ -6,6 +9,7 @@
   grid-template-rows: 5% 80% 15%;
   grid-template-columns: 10% 80% 10%;
   background: url("./img/sky_with_clouds.jpg") center no-repeat;
+  background-size: cover;
 }
 @media (max-width: 1439px) {
   .App {
@@ -17,38 +21,43 @@
     height: 235em;
     grid-template-rows: 2.5% 95% 2.5%;
     grid-template-columns: 8% 84% 8%;
-    background: darkblue;
+    background: #00d2ff;
+    /* fallback for old browsers */
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-gradient(linear, left top, right top, from(#3a7bd5), to(#00d2ff));
+    background: linear-gradient(to right, #3a7bd5, #00d2ff);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 }
 .App .app_body {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column: 2/3;
+  grid-row: 2/3;
 }
 .App .app_body .main_content {
   padding: 4em 0 4em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background-color: #00e5ff;
+  justify-content: space-around;
+  background-color: #f1f150;
 }
 @media (max-width: 1023px) {
   .App .app_body .main_content {
     height: 92.5%;
+    -moz-flex-direction: vertical;
+    -ms-flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
             flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     padding: 0 0 2em 0;
   }
 }/*# sourceMappingURL=App.css.map */

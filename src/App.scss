@@ -1,12 +1,17 @@
+// SASS IMPORTS
 @import './style/common_sass_files/responsive.scss';
+@import './style/common_sass_files/common_variables.scss';
+@import './style/common_sass_files/flexbox.scss';
+@import './style/common_sass_files/color_variables.scss';
 
 .App {
-    width: 100%;
+    width: $width-primary;
     min-height: 90em;
     display: grid;
     grid-template-rows: 5% 80% 15%;
     grid-template-columns: 10% 80% 10%;
     background: url('./img/sky_with_clouds.jpg') center no-repeat;
+    background-size: cover;
     @media #{$screen-laptop-down} {
         font-size: 75%;
     }; 
@@ -14,24 +19,25 @@
         height: 235em;
         grid-template-rows: 2.5% 95% 2.5%;
         grid-template-columns: 8% 84% 8%;
-        background: darkblue;
+        background: #00d2ff;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
 
         .app_body {
-            grid-row-start: 2;
-            grid-row-end: 3;
-            grid-column-start: 2;
-            grid-column-end: 3;
+            grid-column: 2/3; 
+            grid-row: 2/3;
+            
                 .main_content {
                     padding: 4em 0 4em 0;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    background-color: rgb(0, 229, 255);
+                    @include flexbox();
+                    @include flex-direction(row);
+                    @include justify-content(space-around);
+                    background-color: color(app-color);
                     @media #{$screen-iPad-down} {
                         height: 92.5%;
-                        flex-direction: column;
-                        align-items: center;
+                        @include flex-direction(column);
+                        @include align-items(center);
                         padding: 0 0 2em 0;
                     }
                 }

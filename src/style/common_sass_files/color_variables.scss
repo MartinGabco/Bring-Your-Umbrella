@@ -1,0 +1,7 @@
+$colors: (
+    app-color: #eeee3e,
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+};
