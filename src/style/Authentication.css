@@ -1,3 +1,4 @@
+/*SASS MEDIA QUERIES*/
 .authentication {
   width: 85%;
   height: 65em;
@@ -7,10 +8,17 @@
   padding-top: 2.5em;
   background-color: floralwhite;
 }
+@media (max-width: 1023px) {
+  .authentication {
+    height: 90%;
+    grid-template-rows: 5% 20% 0% 20% 52%;
+    grid-template-columns: 0% 100% 0%;
+    margin-top: -4em;
+  }
+}
 
 .form-wrapper {
-  grid-row-start: 1;
-  grid-row-end: 3;
+  min-height: 29em;
   grid-column-start: 2;
   grid-column-end: 3;
   display: -webkit-box;
@@ -25,14 +33,26 @@
           align-items: center;
   background-color: blue;
 }
+@media (max-width: 1023px) {
+  .form-wrapper {
+    min-height: 36em;
+  }
+}
 .form-wrapper h4 {
   font-weight: 400;
   font-size: 1.4em;
-  padding-top: 1em;
+  padding: 0.5em 0 0.5em 0;
+}
+@media (max-width: 1023px) {
+  .form-wrapper h4 {
+    font-size: 1.8em;
+    text-align: center;
+    padding: 0.25em 0 0.25em 0;
+  }
 }
 .form-wrapper .myForm {
   width: 70%;
-  height: 15em;
+  min-height: 17em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -45,6 +65,17 @@
           align-items: center;
   padding-top: 2em;
   background-color: red;
+}
+@media (max-width: 1439px) {
+  .form-wrapper .myForm {
+    padding-top: 0.5em;
+  }
+}
+@media (max-width: 1023px) {
+  .form-wrapper .myForm {
+    width: 90%;
+    min-height: 20em;
+  }
 }
 .form-wrapper .myForm .name {
   margin-top: 2em;
@@ -63,6 +94,18 @@
   padding-bottom: 0.5em;
   color: blue;
 }
+@media (max-width: 1439px) {
+  .form-wrapper .myForm .error_message {
+    margin-top: -2em;
+    padding: 0;
+  }
+}
+@media (max-width: 1023px) {
+  .form-wrapper .myForm .error_message {
+    margin-top: -1em;
+    padding-bottom: 0.5em;
+  }
+}
 .form-wrapper .myForm .submit {
   width: 30%;
   min-height: 1.5em;
@@ -78,4 +121,9 @@
   grid-column-start: 1;
   grid-column-end: 4;
   background: url("../img/river-219972_1280.jpg") center no-repeat;
+}
+@media (max-width: 1023px) {
+  .background-image-wrapper {
+    margin-top: -3em;
+  }
 }/*# sourceMappingURL=Authentication.css.map */

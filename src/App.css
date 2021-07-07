@@ -12,6 +12,14 @@
     font-size: 75%;
   }
 }
+@media (max-width: 1023px) {
+  .App {
+    height: 235em;
+    grid-template-rows: 2.5% 95% 2.5%;
+    grid-template-columns: 8% 84% 8%;
+    background: darkblue;
+  }
+}
 .App .app_body {
   grid-row-start: 2;
   grid-row-end: 3;
@@ -30,4 +38,17 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   background-color: #00e5ff;
+}
+@media (max-width: 1023px) {
+  .App .app_body .main_content {
+    height: 92.5%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 0 2em 0;
+  }
 }/*# sourceMappingURL=App.css.map */

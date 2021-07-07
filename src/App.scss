@@ -10,6 +10,13 @@
     @media #{$screen-laptop-down} {
         font-size: 75%;
     }; 
+    @media #{$screen-iPad-down} {
+        height: 235em;
+        grid-template-rows: 2.5% 95% 2.5%;
+        grid-template-columns: 8% 84% 8%;
+        background: darkblue;
+    }
+
         .app_body {
             grid-row-start: 2;
             grid-row-end: 3;
@@ -21,6 +28,12 @@
                     flex-direction: row;
                     justify-content: space-around;
                     background-color: rgb(0, 229, 255);
+                    @media #{$screen-iPad-down} {
+                        height: 92.5%;
+                        flex-direction: column;
+                        align-items: center;
+                        padding: 0 0 2em 0;
+                    }
                 }
         }
 }

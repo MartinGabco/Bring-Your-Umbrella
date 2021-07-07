@@ -24,7 +24,7 @@ const Daily = props => {
                             <p>
                                 <i>{element.daily_weather_condition_data.situation}</i>
                             </p>
-                            <img src={`http://openweathermap.org/img/w/${element.daily_weather_condition_data.icon}.png`}/>
+                            <img src={`http://openweathermap.org/img/w/${element.daily_weather_condition_data.icon}.png`} className="weather_image"/>
                             <p>{element.daily_weather_condition_data.temperature}°C</p>
                     </section>
                     <section className="umbrella">

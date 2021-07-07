@@ -1,9 +1,19 @@
+@import '../style/common_sass_files/responsive.scss';
+
 .messages-wrapper {
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 5;
     background-color: red;
+    @media #{$screen-laptop-down} {
+        font-size: 1em;
+        line-height: 1.2em;
+    }; 
+    @media #{$screen-iPad-down} {
+        font-size: 1.25em;
+        line-height: 1.35em;
+    }; 
 }
 
 .link_wrapper {

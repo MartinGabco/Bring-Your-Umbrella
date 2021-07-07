@@ -9,6 +9,9 @@
     @media #{$screen-laptop-down} {
         font-size: 95%;
     }; 
+    @media #{$screen-iPad-down} {
+        padding: 0 0 0 1em;    
+    }; 
 
     .place-location {
         font: {
@@ -28,9 +31,18 @@
     grid-column-end: 5;
     padding: 0.7em 0 0 0;
     background-color: rgb(85, 230, 77);
+    @media #{$screen-iPad-down} {
+        padding: 0;  
+    }; 
 
     .main {
         padding-bottom: 0.5em;
+
+        h2 {
+            @media #{$screen-iPad-down} {
+                margin-top: 0.5em; 
+            }
+        }
 
         p {
             transform: translateY(-0.1em);
@@ -40,7 +52,7 @@
     .image {
         padding-top: 0.1em;
         .image-wrapper {
-            margin-left: -0.4em;
+            margin-left: -1em;
             @media #{$screen-laptop-down} {
                 margin-left: -1.2em;
             }; 

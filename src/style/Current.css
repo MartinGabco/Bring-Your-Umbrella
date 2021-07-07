@@ -11,6 +11,11 @@
     font-size: 95%;
   }
 }
+@media (max-width: 1023px) {
+  .current_left {
+    padding: 0 0 0 1em;
+  }
+}
 .current_left .place-location {
   font-size: 1.25em;
   font-style: italic;
@@ -26,8 +31,18 @@
   padding: 0.7em 0 0 0;
   background-color: #55e64d;
 }
+@media (max-width: 1023px) {
+  .current_right {
+    padding: 0;
+  }
+}
 .current_right .main {
   padding-bottom: 0.5em;
+}
+@media (max-width: 1023px) {
+  .current_right .main h2 {
+    margin-top: 0.5em;
+  }
 }
 .current_right .main p {
   -webkit-transform: translateY(-0.1em);
@@ -37,7 +52,7 @@
   padding-top: 0.1em;
 }
 .current_right .image .image-wrapper {
-  margin-left: -0.4em;
+  margin-left: -1em;
 }
 @media (max-width: 1439px) {
   .current_right .image .image-wrapper {

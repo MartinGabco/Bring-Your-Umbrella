@@ -1,3 +1,5 @@
+@import '../style/common_sass_files/responsive.scss';
+
 .authentication {
     width: 85%;
     height: 65em;
@@ -6,34 +8,56 @@
     grid-template-columns: 20% 60% 20%;
     padding-top: 2.5em;
     background-color:floralwhite;
+    @media #{$screen-iPad-down} {
+        height: 90%;
+        grid-template-rows: 5% 20% 0% 20% 52%;
+        grid-template-columns: 0% 100% 0%;
+        margin-top: -4em;
+    }
 }
 
 .form-wrapper {
-    grid-row-start: 1;
-    grid-row-end: 3;
+    min-height: 29em;
     grid-column-start: 2;
     grid-column-end: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: blue;
+    @media #{$screen-laptop-down} {     
+    }
+    @media #{$screen-iPad-down} {
+      min-height: 36em;
+    }
 
     h4 {
       font: {
           weight: 400;
           size: 1.4em;
       }
-      padding-top: 1em;
+      padding: 0.5em 0 0.5em 0;
+      @media #{$screen-iPad-down} {
+        font-size: 1.8em;
+        text-align: center;
+        padding: 0.25em 0 0.25em 0;
+      }
     }
 
     .myForm {
       width: 70%;
-      height: 15em;
+      min-height: 17em;
       display: flex;
       flex-direction: column;
       align-items: center;
       padding-top: 2em;
       background-color: red;
+      @media #{$screen-laptop-down} {
+        padding-top: 0.5em;
+      }      
+      @media #{$screen-iPad-down} {
+        width: 90%;
+        min-height: 20em;
+      }
 
       .name {
         margin-top: 2em;
@@ -53,6 +77,14 @@
         margin-top: -1em;
         padding-bottom: 0.5em;
         color: blue;
+        @media #{$screen-laptop-down} {
+          margin-top: -2em;
+          padding: 0;
+        }  
+        @media #{$screen-iPad-down} {
+          margin-top: -1em;
+          padding-bottom: 0.5em;
+        }  
       }
 
       .submit {
@@ -72,4 +104,7 @@
   grid-column-start: 1;
   grid-column-end: 4;
   background: url('../img/river-219972_1280.jpg') center no-repeat;
+  @media #{$screen-iPad-down} {
+      margin-top: -3em;
+  }
 }
