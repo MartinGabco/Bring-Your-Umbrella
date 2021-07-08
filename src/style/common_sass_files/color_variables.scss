@@ -1,5 +1,13 @@
 $colors: (
     app-color: #eeee3e,
+    nav-color: #ff8c00,
+    base-white-color: #ffffff,
+    hover-color: blue,
+    loader-color: #be5d5d,
+    message-color: #b3f0ff,
+    link-color: #bc70e2,
+    wrapper-color:#ff7f50,
+    authentication-color:#fffaf0          
 );
 
 @function color($color-name) {

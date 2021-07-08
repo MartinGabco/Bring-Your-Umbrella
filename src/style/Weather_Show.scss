@@ -1,12 +1,16 @@
+// SASS IMPORTS
 @import '../style/common_sass_files/responsive.scss';
+@import '../style/common_sass_files/common_variables.scss';
+@import '../style/common_sass_files/color_variables.scss';
+@import '../style/common_sass_files/flexbox.scss';
 
 .loader_current,
 .loader_hourly,
 .loader_daily, {
     width: 3.5em;
     height: 3.5em;
-    border: 0.1em solid #ffff00;
-    border-top: 0.1em solid rgb(40, 78, 204);
+    border: 0.1em solid color(app-color);
+    border-top: 0.1em solid color(loader-color);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     @keyframes spin {
@@ -28,32 +32,33 @@
 }
 
 .container {
-    width: 100%;
+    width: $width-primary;
     min-height: 65em;
     display: grid;
     grid-template-rows: 5% 10% 2.5% 28.5% 2.5% 46.5% 5%;
     grid-template-columns: 5% 35% 2% 53% 5%;
-    background-color: rgb(40, 78, 204);
+    background-color: color(app-color);
     @media #{$screen-iPad-down} {
         min-height: 200em;
         grid-template-rows: 0% 3.2% 2% 9.5% 2% 25% 2.5% 55.8% 0%;
         grid-template-columns: 2% 96% 2%;
-        background-color: chartreuse;
     }
 
     .header_wrapper {
-        grid-row-start: 2;
-        grid-column-start: 2;
-        grid-column-end: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding-top: 0.3em;
-        background-color: rgb(112, 173, 216);
-
+        grid-row: 2;
+        grid-column: 2/5;
+        @include flexbox;
+        @include flex-direction(row);
+        @include justify-content(center);
+        @media #{$screen-iPad-down} {
+            padding-top: 1.5em;
+        }
         h2 {
-            font-weight: lighter;
-            font-size: 1.75em;
+            font: {
+                weight: lighter;
+                size: 2em;
+            }
+            margin-top: -0.25em;
             @media #{$screen-iPad-down} {
                 font-size: 1.65em;
                 margin-top: 0.25em;
@@ -63,74 +68,66 @@
     }
 
     .current_weather {
-        grid-row-start: 4;
-        grid-column-start: 2;
-        grid-column-end: 3;
+        grid-row: 4;
+        grid-column: 2/3;
         display: grid;
         grid-template-rows: 5% 90% 5%;
         grid-template-columns: 5% 52% 6% 32% 5%;      
-        background-color: rgb(236, 236, 14);
+        background-color: color(base-white-color);
         @media #{$screen-iPad-down} {
             font-size: 120%;
         }
     }
 
     .sidebar {
-        grid-row-start: 4;
-        grid-column-start: 4;
-        grid-column-end: 5; 
+        grid-row: 4;
+        grid-column: 4/5;
         display: grid; 
         grid-template-rows: 5% 60% 9% 21% 5%;
         grid-template-columns: 7% 10% 66% 10% 7%;
-        background-color: rgba(238, 94, 89, 0.972);  
+        background-color: color(message-color);  
         @media #{$screen-iPad-down} {
-            grid-row-start: 6;
-            grid-column-start: 2;
-            grid-column-end: 3;
+            grid-row: 6;
+            grid-column: 2/3;
         }
 
         .messages_wrapper {
-            grid-row-start: 1;
-            grid-row-end: 5;
-            grid-column-start: 2;
-            grid-column-end: 5;
+            grid-row: 1/5;
+            grid-column: 2/5;
             display: grid;
             grid-template-rows: 5% 60% 2.5% 28.5% 5%;
             grid-template-columns: 5% 20% 50% 20% 5%;
-            background-color: #80ffff;
             @media #{$screen-iPad-down} {
                 grid-template-rows: 3.5% 69% 7.5% 10.5% 5%;
             }
         }
 
         .link_wrapper {
-            grid-row-start: 4;
-            grid-row-end: 5;
-            grid-column-start: 3;
-            grid-column-end: 4;
-            background-color: darkorchid;
+            grid-row: 4/5;
+            grid-column: 3/4;
+            background-color: color(link-color);
 
             .authentication_link {
                 text-decoration: none;
-                color: #ffffff;
+                color: color(base-white-color);
             }
         }
     }
 
     .footer_wrapper {
-        grid-row-start: 6;
-        grid-column-start: 2;
-        grid-column-end: 5;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding-top: 0.9em;
-        background-color: coral;
+        grid-row: 6;
+        grid-column: 2/5;
+        @include flexbox;
+        @include flex-direction(row);
+        @include justify-content(center);    
+        padding: 0.8em 0.3em 0 0;   
+        background-color: color(wrapper-color);
+        @media #{$screen-laptop-down} {
+            padding-right: 1em;
+        }
         @media #{$screen-iPad-down} {
-            grid-row-start: 8;
-            grid-row-end: 9;
-            grid-column-start: 2;
-            grid-column-end: 3;
+            grid-row: 8/9;
+            grid-column: 2/3;
             padding-top: 3em;
         }
     }

@@ -1,10 +1,10 @@
 /*SASS MEDIA QUERIES*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
 .messages-wrapper {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 2;
-  grid-column-end: 5;
-  background-color: red;
+  grid-row: 2/3;
+  grid-column: 2/5;
 }
 @media (max-width: 1439px) {
   .messages-wrapper {
@@ -20,21 +20,19 @@
 }
 
 .link_wrapper {
-  grid-row-start: 3;
-  grid-row-end: 5;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-row: 3/5;
+  grid-column: 2/3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -moz-flex-direction: horizontal;
+  -ms-flex-direction: row;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   padding: 0 0.4em 0 0.4em;
-  background-color: blue;
 }
 .link_wrapper .auth-link {
   text-align: center;
@@ -45,5 +43,5 @@
           transform: translateY(-0.1em);
 }
 .link_wrapper .auth-link .authentication_link p:hover, .link_wrapper .auth-link .authentication_link p:focus {
-  color: #a03434;
+  color: #eeee3e;
 }/*# sourceMappingURL=Hourly.css.map */

@@ -1,4 +1,7 @@
+// SASS IMPORTS
 @import '../style/common_sass_files/responsive.scss';
+@import '../style/common_sass_files/color_variables.scss';
+@import '../style/common_sass_files/flexbox.scss';
 
 .authentication {
     width: 85%;
@@ -7,104 +10,102 @@
     grid-template-rows: 20% 20% 10% 50%;
     grid-template-columns: 20% 60% 20%;
     padding-top: 2.5em;
-    background-color:floralwhite;
+    background-color: color(authentication-color);
     @media #{$screen-iPad-down} {
         height: 90%;
         grid-template-rows: 5% 20% 0% 20% 52%;
         grid-template-columns: 0% 100% 0%;
         margin-top: -4em;
     }
-}
 
-.form-wrapper {
-    min-height: 29em;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: blue;
-    @media #{$screen-laptop-down} {     
-    }
-    @media #{$screen-iPad-down} {
-      min-height: 36em;
-    }
-
-    h4 {
-      font: {
-          weight: 400;
-          size: 1.4em;
-      }
-      padding: 0.5em 0 0.5em 0;
-      @media #{$screen-iPad-down} {
-        font-size: 1.8em;
-        text-align: center;
-        padding: 0.25em 0 0.25em 0;
-      }
-    }
-
-    .myForm {
-      width: 70%;
-      min-height: 17em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 2em;
-      background-color: red;
-      @media #{$screen-laptop-down} {
-        padding-top: 0.5em;
-      }      
-      @media #{$screen-iPad-down} {
-        width: 90%;
-        min-height: 20em;
-      }
-
-      .name {
-        margin-top: 2em;
-      }
-
-      .name,
-      .email {
-        width: 60%;
-        min-height: 1.5em;
-        padding: 0.25em 0.5em 0.25em 0.5em;
-        margin-bottom: 2em;
-        outline: none;
-        border: none;
-      }
-
-      .error_message {
-        margin-top: -1em;
-        padding-bottom: 0.5em;
-        color: blue;
-        @media #{$screen-laptop-down} {
-          margin-top: -2em;
-          padding: 0;
-        }  
+    .form-wrapper {
+        min-height: 29em;
+        grid-column: 2/3;
+        @include flexbox;
+        @include flex-direction(column);
+        @include align-items(center);
+        background: #00c6ff;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         @media #{$screen-iPad-down} {
-          margin-top: -1em;
-          padding-bottom: 0.5em;
-        }  
-      }
+            min-height: 36em;
+        }
 
-      .submit {
-        width: 30%;
-        min-height: 1.5em;
-        margin-top: 0.5em;
-        font-size: 1em;
-        border: none;
-        cursor: pointer;
-      }
+        h4 {
+            font: {
+                weight: 400;
+                size: 1.4em;
+            }
+            padding: 1.4em 0 0.5em 0;
+            transform: translateY(1em);
+            color: color(base-white-color);
+            @media #{$screen-iPad-down} {
+                font-size: 1.8em;
+                text-align: center;
+                padding: 0.25em 0 0.25em 0;
+            }
+        }
+
+        .myForm {
+            width: 70%;
+            min-height: 17em;
+            @include flexbox;
+            @include flex-direction(column);
+            @include align-items(center);
+            padding-top: 2em;
+            @media #{$screen-laptop-down} {
+                padding-top: 0.5em;
+            }      
+            @media #{$screen-iPad-down} {
+                width: 90%;
+                min-height: 20em;
+            }
+
+            .name {
+                margin-top: 2em;
+            }
+
+            .name,
+            .email {
+                width: 60%;
+                min-height: 1.5em;
+                padding: 0.25em 0.5em 0.25em 0.5em;
+                margin-bottom: 2em;
+                outline: none;
+                border: none;
+            }
+
+            .error_message {
+                margin-top: -1em;
+                padding-bottom: 0.5em;
+                color: color(app-color);
+                @media #{$screen-laptop-down} {
+                    margin-top: -2em;
+                    padding: 0;
+                }  
+                @media #{$screen-iPad-down} {
+                    margin-top: -1em;
+                    padding-bottom: 0.5em;
+                }  
+            }
+
+            .submit {
+                width: 30%;
+                min-height: 1.5em;
+                margin-top: 0.5em;
+                font-size: 1em;
+                border: none;
+                cursor: pointer;
+            }
+        }
     }
-}
 
-.background-image-wrapper {
-  grid-row-start: 4;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  background: url('../img/river-219972_1280.jpg') center no-repeat;
-  @media #{$screen-iPad-down} {
-      margin-top: -3em;
-  }
+    .background-image-wrapper {
+        grid-row: 4;
+        grid-column: 1/4;
+        background: url('../img/river-219972_1280.jpg') center no-repeat;
+        @media #{$screen-iPad-down} {
+            margin-top: -3em;
+        }
+    }
 }

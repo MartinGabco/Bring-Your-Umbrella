@@ -1,10 +1,11 @@
 /*SASS MEDIA QUERIES*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
 .current_left {
-  grid-row-start: 2;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-row: 2;
+  grid-column: 2/3;
   padding: 0.95em 0 0 1em;
-  background-color: #1ecfd2;
 }
 @media (max-width: 1439px) {
   .current_left {
@@ -25,11 +26,9 @@
 }
 
 .current_right {
-  grid-row-start: 2;
-  grid-column-start: 4;
-  grid-column-end: 5;
+  grid-row: 2;
+  grid-column: 4/5;
   padding: 0.7em 0 0 0;
-  background-color: #55e64d;
 }
 @media (max-width: 1023px) {
   .current_right {
@@ -69,10 +68,11 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
+  -ms-flex-line-pack: space-around;
+  align-content: space-around;
 }/*# sourceMappingURL=Current.css.map */

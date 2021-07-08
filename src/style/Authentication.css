@@ -1,4 +1,7 @@
 /*SASS MEDIA QUERIES*/
+/*main axis*/
+/*cross axis*/
+/*Properties of the children*/
 .authentication {
   width: 85%;
   height: 65em;
@@ -6,7 +9,7 @@
   grid-template-rows: 20% 20% 10% 50%;
   grid-template-columns: 20% 60% 20%;
   padding-top: 2.5em;
-  background-color: floralwhite;
+  background-color: #fffaf0;
 }
 @media (max-width: 1023px) {
   .authentication {
@@ -16,72 +19,79 @@
     margin-top: -4em;
   }
 }
-
-.form-wrapper {
+.authentication .form-wrapper {
   min-height: 29em;
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column: 2/3;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: blue;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #00c6ff;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#0072ff), to(#00c6ff));
+  background: linear-gradient(to right, #0072ff, #00c6ff);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 @media (max-width: 1023px) {
-  .form-wrapper {
+  .authentication .form-wrapper {
     min-height: 36em;
   }
 }
-.form-wrapper h4 {
+.authentication .form-wrapper h4 {
   font-weight: 400;
   font-size: 1.4em;
-  padding: 0.5em 0 0.5em 0;
+  padding: 1.4em 0 0.5em 0;
+  -webkit-transform: translateY(1em);
+          transform: translateY(1em);
+  color: #ffffff;
 }
 @media (max-width: 1023px) {
-  .form-wrapper h4 {
+  .authentication .form-wrapper h4 {
     font-size: 1.8em;
     text-align: center;
     padding: 0.25em 0 0.25em 0;
   }
 }
-.form-wrapper .myForm {
+.authentication .form-wrapper .myForm {
   width: 70%;
   min-height: 17em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -moz-flex-direction: vertical;
+  -ms-flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding-top: 2em;
-  background-color: red;
 }
 @media (max-width: 1439px) {
-  .form-wrapper .myForm {
+  .authentication .form-wrapper .myForm {
     padding-top: 0.5em;
   }
 }
 @media (max-width: 1023px) {
-  .form-wrapper .myForm {
+  .authentication .form-wrapper .myForm {
     width: 90%;
     min-height: 20em;
   }
 }
-.form-wrapper .myForm .name {
+.authentication .form-wrapper .myForm .name {
   margin-top: 2em;
 }
-.form-wrapper .myForm .name,
-.form-wrapper .myForm .email {
+.authentication .form-wrapper .myForm .name,
+.authentication .form-wrapper .myForm .email {
   width: 60%;
   min-height: 1.5em;
   padding: 0.25em 0.5em 0.25em 0.5em;
@@ -89,24 +99,24 @@
   outline: none;
   border: none;
 }
-.form-wrapper .myForm .error_message {
+.authentication .form-wrapper .myForm .error_message {
   margin-top: -1em;
   padding-bottom: 0.5em;
-  color: blue;
+  color: #eeee3e;
 }
 @media (max-width: 1439px) {
-  .form-wrapper .myForm .error_message {
+  .authentication .form-wrapper .myForm .error_message {
     margin-top: -2em;
     padding: 0;
   }
 }
 @media (max-width: 1023px) {
-  .form-wrapper .myForm .error_message {
+  .authentication .form-wrapper .myForm .error_message {
     margin-top: -1em;
     padding-bottom: 0.5em;
   }
 }
-.form-wrapper .myForm .submit {
+.authentication .form-wrapper .myForm .submit {
   width: 30%;
   min-height: 1.5em;
   margin-top: 0.5em;
@@ -114,16 +124,13 @@
   border: none;
   cursor: pointer;
 }
-
-.background-image-wrapper {
-  grid-row-start: 4;
-  grid-row-end: 4;
-  grid-column-start: 1;
-  grid-column-end: 4;
+.authentication .background-image-wrapper {
+  grid-row: 4;
+  grid-column: 1/4;
   background: url("../img/river-219972_1280.jpg") center no-repeat;
 }
 @media (max-width: 1023px) {
-  .background-image-wrapper {
+  .authentication .background-image-wrapper {
     margin-top: -3em;
   }
 }/*# sourceMappingURL=Authentication.css.map */

@@ -1,93 +1,78 @@
 @import '../style/common_sass_files/responsive.scss';
+@import '../style/common_sass_files/flexbox.scss';
 
 .home {
-  width: 85%;
-  min-height: 65em;
-  display: grid;
-  grid-template-rows: 49% 51%;
-  grid-template-columns: 34% 66%;
-  background-color:#ffffff;
-  @media #{$screen-iPad-down} {
-      height: 90%;
-      grid-template-rows: 20% 5% 37% 2.5% 25% 10.5%;
-      grid-template-columns: 5% 90% 5%;
-      margin-top: -2em;
-  }
-
-  .umbrella {
-    grid-row-start: 1;
-    grid-row-end: 1;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    background: url('../img/umbrella.jpg') center no-repeat;
+    width: 85%;
+    min-height: 65em;
+    display: grid;
+    grid-template-columns: 34% 66%;      
+    grid-template-rows: 49% 51%;     
     @media #{$screen-iPad-down} {
-        grid-row-start: 1;
-        grid-row-end: 3;  
-        grid-column-start: 2;
-        grid-column-end: 3;    
-        background-color: darkred;
-    }
-  }
-
-  .main_text {
-    grid-row-start: 1;
-    grid-row-end: 1;
-    grid-column-start: 2;
-    grid-column-end: 2;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    text-align: center;
-    padding: 1.5em 2.5em 0 2.5em;
-    font-weight: lighter;
-    line-height: 1.5em;
-    @media #{$screen-laptop-down} {
-      padding-top: 1.5em;
-      font-size: 95%;
-    }; 
-    @media #{$screen-iPad-down} {
-        grid-row-start: 3;
-        grid-row-end: 4;    
-        grid-column-start: 2;
-        grid-column-end: 3;    
-        background-color: darkorange; 
-        font-size: 120%;
+        height: 90%;
+        grid-template-columns: 5% 90% 5%;        
+        grid-template-rows: 20% 5% 37% 0% 25% 13%;
+        margin-top: -2em;
     }
 
-
-    .main-header {
-      font-weight: 400;
-      padding-bottom: 0.25em;
-      @media #{$screen-laptop-down} {
-        font-size: 150%;
-      }; 
-      @media #{$screen-iPad-down} {
-          font-size: 150%;
-          padding: 1em 0 1em 0;
-          line-height: 1.25em;
-      }
+    .umbrella {
+        grid-column: 1/2;    
+        grid-row: 1;
+        background: url('../img/umbrella.jpg') center no-repeat;
+        @media #{$screen-iPad-down} {
+            grid-column: 2/3;        
+            grid-row: 1/3;
+        }
     }
 
-    .first p,
-    .second p,
-    .third p {
-      text-align: left;
-      line-height: 1.75em;
-    }
-  }
+    .main_text {
+        grid-column: 2;    
+        grid-row: 1;
+        @include flexbox;
+        @include flex-direction(column);
+        @include align-content(center);
+        text-align: center;
+        font-weight: lighter;
+        padding: 1.5em 2.5em 0 2.5em;      
+        line-height: 1.5em;
+        @media #{$screen-laptop-down} {
+            padding-top: 1.5em;
+            font-size: 95%;
+        }; 
+        @media #{$screen-iPad-down} {
+            grid-column: 2/3;
+            grid-row: 3/4;            
+            font-size: 120%;
+        }
 
-  .nature_beauty {
-    grid-row-start: 2;
-    grid-row-end: 2;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background: url('../img/nature_beauty.jpg') bottom no-repeat;
-    @media #{$screen-iPad-down} {
-      grid-row-start: 5;
-      grid-row-end: 6;   
-      grid-column-start: 2;
-      grid-column-end: 3;    
-      background-color: blue;  
-  }
-  }
+        .main-header {
+            font-weight: 400;
+            padding-bottom: 0.25em;
+                @media #{$screen-laptop-down} {
+                    font-size: 150%;
+                }; 
+                @media #{$screen-iPad-down} {
+                    font-size: 150%;
+                    padding: 1em 0 1em 0;
+                    line-height: 1.25em;
+                }
+        }
+
+        .first p,
+        .second p,
+        .third p {
+            text-align: left;
+            line-height: 1.75em;
+        }
+    }
+
+    .nature_beauty {
+        grid-column: 1/3;
+        grid-row: 2;        
+        background: url('../img/nature_beauty.jpg') bottom no-repeat;
+        @media #{$screen-iPad-down} {
+            grid-column: 2/3;          
+            grid-row: 5/6;
+            background: url('../img/nature_beauty.jpg') bottom right -10em no-repeat;      
+        }
+    }
 }

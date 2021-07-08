@@ -45,7 +45,7 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  background-color: #f1f150;
+  background-color: #eeee3e;
 }
 @media (max-width: 1023px) {
   .App .app_body .main_content {

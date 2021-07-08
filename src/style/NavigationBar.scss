@@ -1,27 +1,28 @@
 @import './common_sass_files/responsive.scss';
+@import './common_sass_files/common_variables.scss';
+@import './common_sass_files/color_variables.scss';
+@import './common_sass_files/flexbox.scss';
 
 .navigation {
-    width: 100%;
+    width: $width-primary;
     min-height: 5em;
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 15% 70% 15%;
-    background-color: rgb(87, 127, 208);
+    background-color: color(nav-color);
     @media #{$screen-iPad-down} {
         min-height: 12.5em;
     };
 
     .nav-wrapper {
-        grid-column-start: 2;
-        grid-column-end: 3;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
+        grid-column: 2/3;
+        @include flexbox;
+        @include flex-direction(row);
+        @include justify-content(space-evenly);
         padding-top: 0.45em;
-        background-color: darkorange;
         @media #{$screen-iPad-down} {
-            flex-direction: column;
-            align-items: center;
+            @include flex-direction(column);
+            @include align-items(center);
             padding: 1em 0 1.5em 0;
         };    
     }
@@ -34,10 +35,10 @@
 
     p {
         font-size: 1.1em;
-        color: #ffffff;
+        color: color(base-white-color);
         &:hover {
-            color: #1c1cdb;
-        };
+            color: color(hover-color);
+        }
     }    
 }
 

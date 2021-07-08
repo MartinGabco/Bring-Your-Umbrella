@@ -68,7 +68,7 @@ const Authentication = () => {
     return (
         <div className="authentication">
             <div className="form-wrapper">
-                <h4>Do you want receive emails with weather forecast?</h4>
+                <h4>Do you want to receive emails with weather forecast?</h4>
                 <form className="myForm" onSubmit={handleSubmit}>
                     <input type="text" 
                         className="name" 
