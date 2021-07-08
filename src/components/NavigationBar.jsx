@@ -15,7 +15,7 @@ const NavigationBar = () => {
                     <p> Weather Forecast</p> 
                 </NavLink>
                 <NavLink to='/authentification' className="nav-link-authentification">
-                    <p>My mail notification</p>
+                    <p>My email notification</p>
                 </NavLink>                     
             </div>
         </nav>
