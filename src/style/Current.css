@@ -38,17 +38,36 @@
 .current_right .main {
   padding-bottom: 0.5em;
 }
+@media (max-width: 1439px) {
+  .current_right .main h2 {
+    -webkit-transform: translateY(-0.1em);
+            transform: translateY(-0.1em);
+  }
+}
 @media (max-width: 1023px) {
   .current_right .main h2 {
-    margin-top: 0.5em;
+    -webkit-transform: translateY(-0.25em);
+            transform: translateY(-0.25em);
   }
 }
 .current_right .main p {
   -webkit-transform: translateY(-0.1em);
           transform: translateY(-0.1em);
 }
+@media (max-width: 1023px) {
+  .current_right .main p {
+    -webkit-transform: translateY(-0.6em);
+            transform: translateY(-0.6em);
+  }
+}
 .current_right .image {
   padding-top: 0.1em;
+}
+@media (max-width: 1023px) {
+  .current_right .image {
+    -webkit-transform: translateY(-0.85em);
+            transform: translateY(-0.85em);
+  }
 }
 .current_right .image .image-wrapper {
   margin-left: -1em;

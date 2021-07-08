@@ -23,11 +23,17 @@
     @include flex-direction(row);
     @include justify-content(space-around);
     padding: 0 0.4em 0 0.4em;
+    @media #{$screen-iPad-down} {
+        font-size: 1.1em;
+    }
 
     .auth-link {
         text: {
             align: center;
             decoration: none;
+        }
+        @media #{$screen-iPad-down} {
+            transform: translateY(-0.75em);
         }
 
         .authentication_link p {

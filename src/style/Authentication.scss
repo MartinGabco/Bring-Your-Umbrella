@@ -16,6 +16,7 @@
         grid-template-rows: 5% 20% 0% 20% 52%;
         grid-template-columns: 0% 100% 0%;
         margin-top: -4em;
+        background-color: color(app-color);
     }
 
     .form-wrapper {
@@ -39,10 +40,16 @@
             padding: 1.4em 0 0.5em 0;
             transform: translateY(1em);
             color: color(base-white-color);
-            @media #{$screen-iPad-down} {
-                font-size: 1.8em;
+            @media #{$screen-laptop-down} {
+                padding: 0.5em 2em 0.5em 2em;
+                line-height: 1.6em;
                 text-align: center;
-                padding: 0.25em 0 0.25em 0;
+            }
+            @media #{$screen-iPad-down} {
+                font-size: 1.7em;
+                text-align: center;
+                padding: 0.5em 2em 0.5em 2em;
+                line-height: 1.6em;
             }
         }
 
@@ -92,10 +99,13 @@
             .submit {
                 width: 30%;
                 min-height: 1.5em;
+                padding: 0.5em 0 0.5em 0;
                 margin-top: 0.5em;
                 font-size: 1em;
+                font-weight: lighter;
                 border: none;
                 cursor: pointer;
+                color: color(hover-color);
             }
         }
     }

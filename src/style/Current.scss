@@ -37,23 +37,32 @@
         padding-bottom: 0.5em;
 
         h2 {
+            @media #{$screen-laptop-down} {
+                transform: translateY(-0.1em); 
+            }
             @media #{$screen-iPad-down} {
-                margin-top: 0.5em; 
+                transform: translateY(-0.25em); 
             }
         }
 
         p {
             transform: translateY(-0.1em);
+            @media #{$screen-iPad-down} {
+                transform: translateY(-0.6em); 
+            }            
         }
     }
 
     .image {
-        padding-top: 0.1em;
+        padding-top: 0.1em;  
+        @media #{$screen-iPad-down} {
+            transform: translateY(-0.85em); 
+        }        
         .image-wrapper {
             margin-left: -1em;
             @media #{$screen-laptop-down} {
                 margin-left: -1.2em;
-            }; 
+            }
 
             .weather_image {
                 min-width: 4em;

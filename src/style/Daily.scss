@@ -14,7 +14,7 @@
     @media #{$screen-iPad-down} {
         @include flex-direction(column);
         height: 110%;
-        padding-left: 1em;        
+        padding-left: 2em;        
     }
 
     .daily-item {

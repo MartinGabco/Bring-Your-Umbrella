@@ -34,9 +34,20 @@
   justify-content: space-around;
   padding: 0 0.4em 0 0.4em;
 }
+@media (max-width: 1023px) {
+  .link_wrapper {
+    font-size: 1.1em;
+  }
+}
 .link_wrapper .auth-link {
   text-align: center;
   text-decoration: none;
+}
+@media (max-width: 1023px) {
+  .link_wrapper .auth-link {
+    -webkit-transform: translateY(-0.75em);
+            transform: translateY(-0.75em);
+  }
 }
 .link_wrapper .auth-link .authentication_link p {
   -webkit-transform: translateY(-0.1em);

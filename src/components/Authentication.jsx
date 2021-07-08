@@ -85,7 +85,7 @@ const Authentication = () => {
                     />
                     {!emailIsValid && <p className="error_message">Please, write your email!</p>}
                     <button className="submit" type="submit">
-                        SEND EMAIL
+                        SEND EMAIL 
                     </button>
                 </form>                        
             </div>  

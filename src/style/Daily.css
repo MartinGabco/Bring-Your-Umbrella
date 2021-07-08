@@ -24,7 +24,7 @@
     -webkit-box-direction: normal;
             flex-direction: column;
     height: 110%;
-    padding-left: 1em;
+    padding-left: 2em;
   }
 }
 .daily-list .daily-item {
